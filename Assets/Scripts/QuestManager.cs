@@ -5,8 +5,8 @@ using UnityEngine.Events;
 public class QuestManager
 {
     public static QuestManager Instance { get; } = new QuestManager();
-    public List<Quest> ActiveQuests { get; private set; }
-    public List<Quest> FinishedQuests { get; private set; }
+    public List<Quest> ActiveQuests { get; private set; } = new List<Quest>();
+    public List<Quest> FinishedQuests { get; private set; } = new List<Quest>();
     public UnityEvent<Quest> questStatusUpdated;
     public UnityEvent<Quest> questTaskUpdated;
 
