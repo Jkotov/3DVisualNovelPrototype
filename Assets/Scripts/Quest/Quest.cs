@@ -8,6 +8,7 @@ namespace Quest
     [CreateAssetMenu(fileName = "New Quest", menuName = "ScriptableObjects/Quest")]
     public class Quest : ScriptableObject
     {
+        public string description;
         public int priority;
         [NonSerialized] public QuestStatus questStatus = QuestStatus.NotStarted;
         [SerializeField] private List<QuestTask> tasks;
@@ -41,9 +42,9 @@ namespace Quest
             QuestManager.Instance.QuestTaskUpdated(this);
         }
 
-        public void SetActiveTask(QuestTask task)
+        public void ChangeTaskStatus(QuestTask task, QuestStatus status)
         {
-            task.status = QuestStatus.Started;
+            task.status = status;
             QuestManager.Instance.QuestTaskUpdated(this);
         }
 

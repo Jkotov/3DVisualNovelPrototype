@@ -9,8 +9,8 @@ namespace Quest
         public static QuestManager Instance { get; } = new QuestManager();
         public ReadOnlyCollection<Quest> ActiveQuests => activeQuests.AsReadOnly();
         public ReadOnlyCollection<Quest> FinishedQuests => activeQuests.AsReadOnly();
-        public UnityEvent<Quest> questStatusUpdated;
-        public UnityEvent<Quest> questTaskUpdated;
+        public UnityEvent<Quest> questStatusUpdated = new UnityEvent<Quest>();
+        public UnityEvent<Quest> questTaskUpdated = new UnityEvent<Quest>();
 
         private List<Quest> activeQuests = new List<Quest>();
         private List<Quest> finishedQuests = new List<Quest>();
