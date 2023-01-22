@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 205763282677625166}
   - component: {fileID: 136636269291330438}
   m_Layer: 0
-  m_Name: forestpack_tree_fir_tall
+  m_Name: tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 1210459693873458}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210459693873458}
-  m_Mesh: {fileID: 4300000, guid: fda5f0fbb824fb847a8635f96d681d0a, type: 3}
+  m_Mesh: {fileID: 7567532504055388576, guid: 79cfefb8c6bccf8499a05123ade82b25, type: 3}
 --- !u!23 &23480878569182784
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7152570d06274d142beb6031c64ae719, type: 2}
+  - {fileID: 2100000, guid: eb515155d24d70a41a6c1ae4a8cff355, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,7 +99,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 1c39accf3fc812b46a89b53030f37397, type: 3}
+  m_Mesh: {fileID: 7567532504055388576, guid: 79cfefb8c6bccf8499a05123ade82b25, type: 3}
 --- !u!205 &205763282677625166
 LODGroup:
   m_ObjectHideFlags: 0
