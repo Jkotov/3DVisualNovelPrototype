@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/village.unity
+    guid: 0516937c995d68046952fa9484d25c18
+  - enabled: 1
+    path: Assets/Scenes/WorkshopInside.unity
+    guid: fa1d6e8c404984c4d952b582c9ef7fff
   m_configObjects: {}
