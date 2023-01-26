@@ -9,8 +9,7 @@ namespace Dialog
         [ContextMenu("Dialog")]
         public void StartDialog()
         {
-            DialogWindow.instance.ShowDialogWindow();
-            
+            DialogWindow.Instance.ShowDialogWindow();
         }
     }
 }

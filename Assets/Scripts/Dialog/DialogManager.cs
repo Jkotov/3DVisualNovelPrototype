@@ -8,10 +8,20 @@ namespace Dialog
         public void StartDialog(Dialog dialog)
         {
             CurrentDialog = dialog;
-            DialogWindow.instance.ShowDialogWindow();
-            DialogWindow.instance.ShowDialogBlock(dialog.dialogBlocks[0]);
+            DialogWindow.Instance.ShowDialogWindow();
+            ShowDialogBlock(dialog.dialogBlocks[0]);
         }
-        
+
+        public void ShowDialogBlock(DialogBlock dialogBlock)
+        {
+            var answerWindows = DialogWindow.Instance.ShowDialogBlock(dialogBlock);
+        }
+
+        public void AnswerPressed(Answer answer)
+        {
+            
+        }
+
         static DialogManager()
         {
         }

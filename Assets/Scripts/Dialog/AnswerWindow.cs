@@ -4,10 +4,16 @@ using UnityEngine.Events;
 
 namespace Dialog
 {
-    public class AnswerWindow : MonoBehaviour
+    public class AnswerWindow : TextWindow
     {
         public Answer answer;
         public UnityEvent<Answer> answerPressed;
+
+        public void UpdateAnswer(Answer newAnswer)
+        {
+            answer = newAnswer;
+            UpdateText(newAnswer.text);
+        }
 
         private void OnMouseUpAsButton()
         {

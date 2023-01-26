@@ -9,7 +9,7 @@ namespace Dialog
         public List<Answer> answers;
     }
     
-    public struct Answer
+    public class Answer
     {
         public string text;
         public DialogBlock nextDialogBlock;
