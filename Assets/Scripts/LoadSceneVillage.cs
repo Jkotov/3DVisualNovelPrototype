@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class LoadSceneVillage : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    [SerializeField] private Scene scene;
+
+    private void OnTriggerStay(Collider other)
     {
-        SceneManager.LoadScene(0);
+        if (Input.GetKeyDown(KeyCode.F))
+            SceneManager.LoadScene(scene.name);
     }
 }
