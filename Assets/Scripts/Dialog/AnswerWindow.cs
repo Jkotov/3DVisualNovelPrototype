@@ -8,7 +8,10 @@ namespace Dialog
     {
         public Answer answer;
         public UnityEvent<Answer> answerPressed;
-        
-        
+
+        private void OnMouseUpAsButton()
+        {
+            answerPressed?.Invoke(answer);
+        }
     }
 }

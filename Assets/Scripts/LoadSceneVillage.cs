@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadSceneVillage : MonoBehaviour
 {
-    [SerializeField] private Scene scene;
+    [SerializeField] private Object scene;
 
     private void OnTriggerStay(Collider other)
     {
