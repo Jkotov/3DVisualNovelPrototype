@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -8,9 +9,10 @@ namespace Dialog
     public class DialogWindow : MonoBehaviour
     {
         public static DialogWindow instance;
-        [SerializeField] private TextMeshProUGUI textMeshProUGUI;
+        [SerializeField] private MainTextDialogWindow mainText;
         [SerializeField] private float showAnimationTime;
         [SerializeField] private float hideAnimationTime;
+        [SerializeField] private List<AnswerWindow> answersWindows;
         
         public void ShowDialogWindow()
         {
