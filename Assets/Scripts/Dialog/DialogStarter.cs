@@ -4,12 +4,12 @@ namespace Dialog
 {
     public class DialogStarter : MonoBehaviour
     {
-        [SerializeField] private Dialog dialog;
+        [SerializeField] private DialogBlock firstDialogBlock;
 
         [ContextMenu("StartDialog")]
         public void StartDialog()
         {
-            DialogManager.Instance.StartDialog(dialog);
+            DialogManager.Instance.StartDialog(firstDialogBlock);
         }
     }
 }

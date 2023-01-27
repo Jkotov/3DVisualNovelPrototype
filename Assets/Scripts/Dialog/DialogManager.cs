@@ -3,13 +3,11 @@ namespace Dialog
     public class DialogManager
     {
         public static DialogManager Instance { get; } = new DialogManager();
-        public Dialog CurrentDialog { get; private set; }
 
-        public void StartDialog(Dialog dialog)
+        public void StartDialog(DialogBlock firstDialog)
         {
-            CurrentDialog = dialog;
             DialogWindow.Instance.ShowDialogWindow();
-            ShowDialogBlock(dialog.dialogBlocks[0]);
+            ShowDialogBlock(firstDialog);
         }
 
         public void ShowDialogBlock(DialogBlock dialogBlock)
