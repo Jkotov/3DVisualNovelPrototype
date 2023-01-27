@@ -6,18 +6,28 @@ namespace Dialog
 
         public void StartDialog(DialogBlock firstDialog)
         {
+            SubscribeToAnswerWindows();
             DialogWindow.Instance.ShowDialogWindow();
             ShowDialogBlock(firstDialog);
         }
 
-        public void ShowDialogBlock(DialogBlock dialogBlock)
+        public void SubscribeToAnswerWindows()
         {
-            var answerWindows = DialogWindow.Instance.ShowDialogBlock(dialogBlock);
+            foreach (var window in DialogWindow.Instance.AnswersWindows)
+            {
+                window.answerPressed.AddListener(AnswerPressed);
+            }
         }
 
-        public void AnswerPressed(Answer answer)
+        private void ShowDialogBlock(DialogBlock dialogBlock)
         {
-            
+            DialogWindow.Instance.ShowDialogBlock(dialogBlock);
+        }
+
+        private void AnswerPressed(Answer answer)
+        {
+            if (answer.nextDialogBlock != null)
+                ShowDialogBlock(answer.nextDialogBlock);
         }
 
         static DialogManager()

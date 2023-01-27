@@ -10,7 +10,7 @@ namespace Dialog
     public class DialogWindow : MonoBehaviour
     {
         public static DialogWindow Instance { get; private set; }
-        public List<AnswerWindow> AnswersWindows => answersWindows;
+        public ReadOnlyCollection<AnswerWindow> AnswersWindows => answersWindows.AsReadOnly();
         [SerializeField] private MainTextDialogWindow mainText;
         [SerializeField] private float showAnimationTime;
         [SerializeField] private float hideAnimationTime;
