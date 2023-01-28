@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using TMPro;
 using UnityEngine;
 
 namespace Dialog
@@ -15,10 +13,12 @@ namespace Dialog
         [SerializeField] private float showAnimationTime;
         [SerializeField] private float hideAnimationTime;
         [SerializeField] private List<AnswerWindow> answerWindows;
-        
+        [SerializeField] private RectTransform answerWindowsContentRect;
+        [SerializeField] private GameObject scrollView;
         public void ShowDialogWindow()
         {
             mainText.gameObject.SetActive(true);
+            scrollView.SetActive(true);
         }
         
         public void HideDialogWindow()
@@ -28,6 +28,7 @@ namespace Dialog
             {
                 answersWindow.gameObject.SetActive(false);
             }
+            scrollView.SetActive(false);
         }
 
         public void ShowDialogBlock(DialogBlock block)
@@ -43,6 +44,12 @@ namespace Dialog
         
         private void ShowAnswerWindows(IReadOnlyList<Answer> answers)
         {
+            SetActiveAnswerWindows(answers);
+            SetNewRectPositions(answers.Count);
+        }
+
+        private void SetActiveAnswerWindows(IReadOnlyList<Answer> answers)
+        {
             if (answers.Count > answerWindows.Count)
                 throw new Exception("Not enough answer windows. Pls add more windows.");
             var windowCount = answers.Count;
@@ -54,6 +61,27 @@ namespace Dialog
             for (int i = windowCount; i < answerWindows.Count; i++)
             {
                 answerWindows[i].gameObject.SetActive(false);
+            }
+        }
+
+        private void SetNewRectPositions(int activeAnswerWindows)
+        {
+            answerWindowsContentRect.anchoredPosition = Vector2.zero;
+            var contentRectHeight = 0f;
+            for (int i = 0; i < activeAnswerWindows; i++)
+            {
+                contentRectHeight += answerWindows[i].RectTransform.rect.height;
+            }
+            var sizeDelta = answerWindowsContentRect.sizeDelta;
+            sizeDelta = new Vector2(sizeDelta.x, contentRectHeight);
+            answerWindowsContentRect.sizeDelta = sizeDelta;
+            var answerWindowCenter = sizeDelta;
+            answerWindowCenter.y /= 2;
+            answerWindowCenter.y += answerWindows[0].RectTransform.sizeDelta.y / 2;
+            for (int i = 0; i < activeAnswerWindows; i++)
+            {
+                answerWindowCenter.y -= answerWindows[i].RectTransform.sizeDelta.y;
+                answerWindows[i].RectTransform.anchoredPosition = answerWindowCenter;
             }
         }
 

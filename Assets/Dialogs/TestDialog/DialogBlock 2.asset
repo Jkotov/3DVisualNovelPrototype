@@ -21,3 +21,5 @@ MonoBehaviour:
     nextDialogBlock: {fileID: 11400000, guid: c215208887c526f85bfd34f0f63dc4e3, type: 2}
   - text: exit
     nextDialogBlock: {fileID: 0}
+  - text: exit
+    nextDialogBlock: {fileID: 0}

@@ -9,6 +9,7 @@ namespace Dialog
     {
         [HideInInspector] public Answer answer;
         [HideInInspector] public UnityEvent<Answer> answerPressed;
+        public RectTransform RectTransform { get; private set; }
 
         public void UpdateAnswer(Answer newAnswer)
         {
@@ -16,14 +17,15 @@ namespace Dialog
             UpdateText(newAnswer.text);
         }
 
-        private void OnMouseUpAsButton()
-        {
-        }
-
         public void OnPointerClick(PointerEventData eventData)
         {
             Debug.Log("Pressed");
             answerPressed?.Invoke(answer);
+        }
+
+        private void Awake()
+        {
+            RectTransform = GetComponent<RectTransform>();
         }
     }
 }

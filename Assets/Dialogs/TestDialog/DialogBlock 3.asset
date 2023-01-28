@@ -17,7 +17,3 @@ MonoBehaviour:
   answers:
   - text: bark
     nextDialogBlock: {fileID: 11400000, guid: b690359710b000c05818cd2a02cc03f9, type: 2}
-  - text: meow
-    nextDialogBlock: {fileID: 11400000}
-  - text: exit
-    nextDialogBlock: {fileID: 0}
