@@ -10,26 +10,30 @@ namespace Dialog
     public class DialogWindow : MonoBehaviour
     {
         public static DialogWindow Instance { get; private set; }
-        public ReadOnlyCollection<AnswerWindow> AnswersWindows => answersWindows.AsReadOnly();
+        public ReadOnlyCollection<AnswerWindow> AnswersWindows => answerWindows.AsReadOnly();
         [SerializeField] private MainTextDialogWindow mainText;
         [SerializeField] private float showAnimationTime;
         [SerializeField] private float hideAnimationTime;
-        [SerializeField] private List<AnswerWindow> answersWindows;
+        [SerializeField] private List<AnswerWindow> answerWindows;
         
         public void ShowDialogWindow()
         {
-            
+            mainText.gameObject.SetActive(true);
         }
         
         public void HideDialogWindow()
         {
-            
+            mainText.gameObject.SetActive(false);
+            foreach (var answersWindow in answerWindows)
+            {
+                answersWindow.gameObject.SetActive(false);
+            }
         }
 
-        public ReadOnlyCollection<AnswerWindow> ShowDialogBlock(DialogBlock block)
+        public void ShowDialogBlock(DialogBlock block)
         {
             ShowMainText(block.blockText);
-            return ShowAnswerWindows(block.answers);
+            ShowAnswerWindows(block.answers);
         }
 
         private void ShowMainText(string text)
@@ -37,20 +41,20 @@ namespace Dialog
             mainText.UpdateText(text);
         }
         
-        private ReadOnlyCollection<AnswerWindow> ShowAnswerWindows(ICollection answers)
+        private void ShowAnswerWindows(IReadOnlyList<Answer> answers)
         {
-            if (answers.Count > answersWindows.Count)
+            if (answers.Count > answerWindows.Count)
                 throw new Exception("Not enough answer windows. Pls add more windows.");
             var windowCount = answers.Count;
             for (int i = 0; i < windowCount; i++)
             {
-                answersWindows[i].gameObject.SetActive(true);
+                answerWindows[i].gameObject.SetActive(true);
+                answerWindows[i].UpdateAnswer(answers[i]);
             }
-            for (int i = windowCount; i < answersWindows.Count; i++)
+            for (int i = windowCount; i < answerWindows.Count; i++)
             {
-                answersWindows[i].gameObject.SetActive(false);
+                answerWindows[i].gameObject.SetActive(false);
             }
-            return answersWindows.GetRange(0, windowCount).AsReadOnly();
         }
 
         private void Awake()

@@ -11,6 +11,11 @@ namespace Dialog
             ShowDialogBlock(firstDialog);
         }
 
+        public void FinishDialog()
+        {
+            DialogWindow.Instance.HideDialogWindow();
+        }
+        
         public void SubscribeToAnswerWindows()
         {
             foreach (var window in DialogWindow.Instance.AnswersWindows)
@@ -28,6 +33,9 @@ namespace Dialog
         {
             if (answer.nextDialogBlock != null)
                 ShowDialogBlock(answer.nextDialogBlock);
+            else
+                FinishDialog();
+            
         }
 
         static DialogManager()
