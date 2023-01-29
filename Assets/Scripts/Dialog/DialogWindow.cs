@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Dialog
 {
@@ -17,6 +18,10 @@ namespace Dialog
         [SerializeField] private GameObject scrollView;
         public void ShowDialogWindow()
         {
+            if (FindObjectOfType<EventSystem>() == null)
+            {
+                var eventSystem = new GameObject("EventSystem", typeof(EventSystem), typeof(StandaloneInputModule));
+            }
             mainText.gameObject.SetActive(true);
             scrollView.SetActive(true);
         }

@@ -3,9 +3,13 @@ namespace Dialog
     public class DialogManager
     {
         public static DialogManager Instance { get; } = new DialogManager();
+        public bool isDialogStarted { get; private set; }
 
         public void StartDialog(DialogBlock firstDialog)
         {
+            if (isDialogStarted)
+                return;
+            isDialogStarted = true;
             SubscribeToAnswerWindows();
             DialogWindow.Instance.ShowDialogWindow();
             ShowDialogBlock(firstDialog);
@@ -13,6 +17,7 @@ namespace Dialog
 
         public void FinishDialog()
         {
+            isDialogStarted = false;
             DialogWindow.Instance.HideDialogWindow();
         }
         
