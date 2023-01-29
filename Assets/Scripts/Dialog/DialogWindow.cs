@@ -18,6 +18,7 @@ namespace Dialog
         [SerializeField] private RectTransform answerWindowsContentRect;
         [SerializeField] private GameObject scrollView;
         [SerializeField] private Image actorImage;
+        [SerializeField] private MainTextDialogWindow ActorName;
         public void ShowDialogWindow()
         {
             if (FindObjectOfType<EventSystem>() == null)
@@ -27,6 +28,7 @@ namespace Dialog
             mainText.gameObject.SetActive(true);
             scrollView.SetActive(true);
             actorImage.gameObject.SetActive(true);
+            ActorName.gameObject.SetActive(true);
         }
         
         public void HideDialogWindow()
@@ -37,6 +39,7 @@ namespace Dialog
                 answersWindow.gameObject.SetActive(false);
             }
             actorImage.gameObject.SetActive(false);
+            ActorName.gameObject.SetActive(false);
             scrollView.SetActive(false);
         }
 
@@ -45,6 +48,7 @@ namespace Dialog
             actorImage.sprite = block.actor.sprite;
             ShowMainText(block.blockText);
             ShowAnswerWindows(block.answers);
+            ActorName.UpdateText(block.actor.actorName);
         }
 
         private void ShowMainText(string text)

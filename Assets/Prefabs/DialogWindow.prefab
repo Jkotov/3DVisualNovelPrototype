@@ -140,6 +140,7 @@ MonoBehaviour:
   answerWindowsContentRect: {fileID: 8168408291601804446}
   scrollView: {fileID: 8168408292573293425}
   actorImage: {fileID: 9100430167045442586}
+  ActorName: {fileID: 0}
 --- !u!223 &8168408290988716399
 Canvas:
   m_ObjectHideFlags: 0
@@ -331,6 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d8a38b6638438c80733d372382908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightOffset: 50
   textMeshProUGUI: {fileID: 8168408291084853147}
 --- !u!1 &8168408291120996737
 GameObject:
