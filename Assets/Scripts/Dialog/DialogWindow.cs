@@ -85,14 +85,14 @@ namespace Dialog
             var sizeDelta = answerWindowsContentRect.sizeDelta;
             sizeDelta = new Vector2(sizeDelta.x, contentRectHeight);
             answerWindowsContentRect.sizeDelta = sizeDelta;
-            var answerWindowCenter = sizeDelta;
+            /*var answerWindowCenter = sizeDelta;
             answerWindowCenter.y /= 2;
             answerWindowCenter.y += answerWindows[0].RectTransform.sizeDelta.y / 2;
             for (int i = 0; i < activeAnswerWindows; i++)
             {
                 answerWindowCenter.y -= answerWindows[i].RectTransform.sizeDelta.y;
                 answerWindows[i].RectTransform.anchoredPosition = answerWindowCenter;
-            }
+            }*/
         }
 
         private void Awake()
