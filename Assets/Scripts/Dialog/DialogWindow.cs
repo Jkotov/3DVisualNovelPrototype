@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Dialog
 {
@@ -16,6 +17,7 @@ namespace Dialog
         [SerializeField] private List<AnswerWindow> answerWindows;
         [SerializeField] private RectTransform answerWindowsContentRect;
         [SerializeField] private GameObject scrollView;
+        [SerializeField] private Image actorImage;
         public void ShowDialogWindow()
         {
             if (FindObjectOfType<EventSystem>() == null)
@@ -24,6 +26,7 @@ namespace Dialog
             }
             mainText.gameObject.SetActive(true);
             scrollView.SetActive(true);
+            actorImage.gameObject.SetActive(true);
         }
         
         public void HideDialogWindow()
@@ -33,11 +36,13 @@ namespace Dialog
             {
                 answersWindow.gameObject.SetActive(false);
             }
+            actorImage.gameObject.SetActive(false);
             scrollView.SetActive(false);
         }
 
         public void ShowDialogBlock(DialogBlock block)
         {
+            actorImage.sprite = block.actor.sprite;
             ShowMainText(block.blockText);
             ShowAnswerWindows(block.answers);
         }
