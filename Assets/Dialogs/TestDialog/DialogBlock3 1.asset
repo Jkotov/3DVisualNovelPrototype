@@ -12,11 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d813d9ba36412c9eafb5921609671c, type: 3}
   m_Name: DialogBlock3 1
   m_EditorClassIdentifier: 
-  blockText: "\u0417\u0430\u0431\u0430\u0432\u043D\u044B\u0439 \u0442\u044B, \u0410\u0438.
-    \u041A\u0430\u043A \u0442\u044B \u0442\u0443\u0442 \u043E\u043A\u0430\u0437\u0430\u043B\u0441\u044F?"
+  blockText: 
   actor: {fileID: 11400000, guid: f83e849f60f38a06babf00081e6a6d76, type: 2}
-  answers:
-  - text: 
-    nextDialogBlock: {fileID: 11400000}
-  - text: 
-    nextDialogBlock: {fileID: 0}
+  answers: []

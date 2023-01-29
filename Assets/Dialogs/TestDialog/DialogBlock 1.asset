@@ -19,4 +19,4 @@ MonoBehaviour:
   actor: {fileID: 11400000, guid: f83e849f60f38a06babf00081e6a6d76, type: 2}
   answers:
   - text: "\u041F\u043E\u0445\u043E\u0436\u0435, \u0447\u0442\u043E \u0410\u0438\u2026"
-    nextDialogBlock: {fileID: 11400000, guid: b690359710b000c05818cd2a02cc03f9, type: 2}
+    nextDialogBlock: {fileID: 11400000, guid: 55734791d1edc7f4388cdb497ba1be06, type: 2}
