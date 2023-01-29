@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Dialog
 {
@@ -9,8 +11,6 @@ namespace Dialog
     {
         [HideInInspector] public Answer answer;
         [HideInInspector] public UnityEvent<Answer> answerPressed;
-        public RectTransform RectTransform { get; private set; }
-
         public void UpdateAnswer(Answer newAnswer)
         {
             answer = newAnswer;
@@ -21,11 +21,6 @@ namespace Dialog
         {
             Debug.Log("Pressed");
             answerPressed?.Invoke(answer);
-        }
-
-        private void Awake()
-        {
-            RectTransform = GetComponent<RectTransform>();
         }
     }
 }
