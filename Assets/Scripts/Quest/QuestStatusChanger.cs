@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Quest
 {
-    public class QuestTrigger : MonoBehaviour
+    public class QuestStatusChanger : MonoBehaviour
     {
         [SerializeField] private Quest quest;
         [SerializeField] private QuestTask questTask;

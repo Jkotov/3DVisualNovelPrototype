@@ -17,12 +17,16 @@ namespace Quest
     
         public void StartQuest(Quest quest)
         {
+            if (ActiveQuests.Contains(quest) || FinishedQuests.Contains(quest))
+                return;
             questStatusUpdated?.Invoke(quest);
             activeQuests.Add(quest);
         }
 
         public void FinishQuest(Quest quest)
         {
+            if (!ActiveQuests.Contains(quest))
+                return;
             questStatusUpdated?.Invoke(quest);
             finishedQuests.Add(quest);
             activeQuests.Remove(quest);
