@@ -3,8 +3,11 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] float rotationSpeed;
+    [SerializeField] float speed;
     private Rigidbody sphereRigidbody;
     private Vector2 move;
+
     private void Awake()
     {
         sphereRigidbody = GetComponent<Rigidbody>();
@@ -16,6 +19,7 @@ public class Player : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        sphereRigidbody.velocity = new Vector3(move.x, 0, move.y);
+        sphereRigidbody.velocity = transform.forward * move.y * speed;
+        transform.Rotate(Vector3.up, Time.fixedDeltaTime * move.x * rotationSpeed);
     }
 }
