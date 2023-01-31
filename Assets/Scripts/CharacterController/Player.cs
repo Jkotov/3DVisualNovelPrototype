@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
         
         Vector2 inputVector = context.ReadValue<Vector2>();
         float speed = 5f;
-        sphereRigidbody.AddForce(new Vector3(inputVector.x, 0, inputVector.y) * speed, ForceMode.Force);
+        sphereRigidbody.velocity = new Vector3(inputVector.x, 0, inputVector.y);
         Debug.Log(inputVector);
     }
 }
