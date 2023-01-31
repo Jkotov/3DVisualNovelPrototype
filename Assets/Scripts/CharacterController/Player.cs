@@ -1,29 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
     private Rigidbody sphereRigidbody;
-    private PlayerInput playerInput;
-
+    private Vector2 move;
     private void Awake()
     {
         sphereRigidbody = GetComponent<Rigidbody>();
-        playerInput = GetComponent<PlayerInput>();
-
-        PlayerInputActions playerinputActions = new PlayerInputActions();
-        playerinputActions.Player.Enable();
-        playerinputActions.Player.Movement.performed += Movement_performed;
     }
 
-    private void Movement_performed(InputAction.CallbackContext context)
+    public void Movement(InputAction.CallbackContext context)
     {
-        
-        Vector2 inputVector = context.ReadValue<Vector2>();
-        float speed = 5f;
-        sphereRigidbody.velocity = new Vector3(inputVector.x, 0, inputVector.y);
-        Debug.Log(inputVector);
+        move = context.ReadValue<Vector2>();
+    }
+    private void FixedUpdate()
+    {
+        sphereRigidbody.velocity = new Vector3(move.x, 0, move.y);
     }
 }
