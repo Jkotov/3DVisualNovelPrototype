@@ -13,13 +13,13 @@ public abstract class EventTrigger : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out SimpleCharacterController c))
+        if (other.TryGetComponent(out Player c))
             coroutine = StartCoroutine(WaitForKeyPressed());
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent(out SimpleCharacterController c))
+        if (other.TryGetComponent(out Player c))
             StopCoroutine(coroutine);
     }
 
