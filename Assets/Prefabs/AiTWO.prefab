@@ -2066,10 +2066,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7302084960730434423}
   - component: {fileID: 3726195711599087885}
-  - component: {fileID: 7123725839715300842}
   - component: {fileID: 7123725839715300843}
   - component: {fileID: 650539694871952402}
   - component: {fileID: 792425040930966544}
+  - component: {fileID: 2166447394898182401}
+  - component: {fileID: 4928743883536175947}
+  - component: {fileID: 2306429386720835686}
   m_Layer: 0
   m_Name: AiTWO
   m_TagString: Untagged
@@ -2116,22 +2118,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!54 &7123725839715300842
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7934752354635551181}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!136 &7123725839715300843
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2158,6 +2144,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b889f9c207aa6334b8222108cfd77378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forwardSpeedApplied:
+    m_PersistentCalls:
+      m_Calls: []
+  turnSpeedApplied:
+    m_PersistentCalls:
+      m_Calls: []
+  rotationSpeed: 30
+  forwardSpeed: 4
 --- !u!114 &792425040930966544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2205,6 +2199,55 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!143 &2166447394898182401
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7934752354635551181}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 4
+  m_Radius: 1.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 2.5, z: 0}
+--- !u!114 &4928743883536175947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7934752354635551181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c175f57675d8e4b42ad9ff72d86b530e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forwardSpeed:
+    name: forwardSpeed
+  turningSpeed:
+    name: turningSpeed
+--- !u!114 &2306429386720835686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7934752354635551181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83b9a36c07bc422db8a3bea3618ffd18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTalking:
+    name: isTalking
+  actor: {fileID: 11400000, guid: 157575e5448915f48ba8ce516d2785e4, type: 2}
 --- !u!1 &8091279336633621361
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,9 +1,12 @@
+using UnityEngine.Events;
+
 namespace Dialog
 {
     public class DialogManager
     {
         public static DialogManager Instance { get; } = new DialogManager();
-        public bool isDialogStarted { get; private set; }
+        public readonly UnityEvent<Actor> activeActorChanged;
+        private bool isDialogStarted;
 
         public void StartDialog(DialogBlock firstDialog)
         {
@@ -31,6 +34,7 @@ namespace Dialog
 
         private void ShowDialogBlock(DialogBlock dialogBlock)
         {
+            activeActorChanged?.Invoke(dialogBlock.actor);
             DialogWindow.Instance.ShowDialogBlock(dialogBlock);
         }
 
@@ -49,6 +53,7 @@ namespace Dialog
 
         private DialogManager()
         {
+            activeActorChanged = new UnityEvent<Actor>();
         }
     }
 }

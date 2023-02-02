@@ -7601,11 +7601,6 @@ PrefabInstance:
       propertyPath: speed
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 650539694871952402, guid: caba911f3f7e93440a156242610a6cff,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 792425040930966544, guid: caba911f3f7e93440a156242610a6cff,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7614,7 +7609,12 @@ PrefabInstance:
     - target: {fileID: 792425040930966544, guid: caba911f3f7e93440a156242610a6cff,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Movement
+      value: ReadMoveInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 792425040930966544, guid: caba911f3f7e93440a156242610a6cff,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Controller.PlayerMove, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7123725839344200219, guid: caba911f3f7e93440a156242610a6cff,
         type: 3}

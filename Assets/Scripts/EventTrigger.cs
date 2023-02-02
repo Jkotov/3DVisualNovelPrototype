@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Controller;
 using Dialog;
 using UnityEngine;
 
@@ -13,13 +14,13 @@ public abstract class EventTrigger : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Player c))
+        if (other.TryGetComponent(out PlayerMove c))
             coroutine = StartCoroutine(WaitForKeyPressed());
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent(out Player c))
+        if (other.TryGetComponent(out PlayerMove c))
             StopCoroutine(coroutine);
     }
 
