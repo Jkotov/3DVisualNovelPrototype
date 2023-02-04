@@ -2180,9 +2180,9 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: Movement
+      - m_Target: {fileID: 650539694871952402}
+        m_TargetAssemblyTypeName: Controller.PlayerMove, Assembly-CSharp
+        m_MethodName: ReadMoveInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
