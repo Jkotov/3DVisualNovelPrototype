@@ -1,29 +1,9 @@
 fileFormatVersion: 2
-guid: 2fdfe211b10554d4e93b38e3a2d3beaf
+guid: 7f15c683e4ad7eb4797b66229c1b3054
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ai_Hair_Material
-    second: {fileID: 2100000, guid: c3b689418ebf7ef4c9339a763c095771, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ai_Material
-    second: {fileID: 2100000, guid: 29cc7012fed4f4848a7fee890ebf3f91, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Shirt
-    second: {fileID: 2100000, guid: a79480a66cda17646a1a09ac7f5118ae, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: bruki
-    second: {fileID: 2100000, guid: 61c6fbbd91ea8bc41a1df3e41b942aa1, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -109,7 +89,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: Body.002
+    rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
@@ -117,7 +97,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 
