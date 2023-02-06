@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad5c0a2b621d164dbe1fac22d1d6ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: {fileID: 102900000, guid: de8216a6187387e41baff9f4f0e0f03a, type: 3}
+  scene: 
 --- !u!65 &83169842
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3377,7 +3377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad5c0a2b621d164dbe1fac22d1d6ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
+  scene: 
 --- !u!1 &1138075829 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5042048040192068020, guid: 46a6ab97f9c133b4da0a3f0651c9dc57,
@@ -4845,7 +4845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad5c0a2b621d164dbe1fac22d1d6ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: {fileID: 102900000, guid: fa1d6e8c404984c4d952b582c9ef7fff, type: 3}
+  scene: Assets/Scenes/WorkshopInside.unity
 --- !u!1 &1556977848 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4767400413853537203, guid: e0026a5e9a81c8745bca530ffd59981a,
