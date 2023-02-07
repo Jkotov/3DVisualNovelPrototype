@@ -10,7 +10,6 @@ public class InventoryTest : MonoBehaviour
     [SerializeField] private int itemsCount;
     [SerializeField] private InventoryItem item;
     [SerializeField] private Inventory inventory;
-    [SerializeField] private TextMeshProUGUI textMeshProUGUI;
     [ContextMenu("AddItems")]
     public void AddItems()
     {
@@ -20,24 +19,5 @@ public class InventoryTest : MonoBehaviour
     public void RemoveItems()
     {
         Debug.Log(inventory.TryRemove(item, itemsCount));
-    }
-
-    private void Awake()
-    {
-        StartCoroutine(Test());
-    }
-
-    IEnumerator Test()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(10);
-            AddItems();
-            textMeshProUGUI.text = "";
-            foreach (var slot in inventory.Slots)
-            {
-                textMeshProUGUI.text += slot.count.ToString() + ' ';
-            }
-        }
     }
 }

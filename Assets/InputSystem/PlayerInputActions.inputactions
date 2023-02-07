@@ -13,6 +13,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "SceneLoad",
+                    "type": "Button",
+                    "id": "18afbefa-5e94-4be3-b634-f700dc2dcdde",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "StartDialog",
+                    "type": "Button",
+                    "id": "15fea59f-52e6-4c17-b6d9-636b8134774c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -31,17 +49,6 @@
                     "name": "up",
                     "id": "8136e4f5-9ca8-4405-a678-c06c99e583be",
                     "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "076896eb-e098-4f79-9b7b-e2c1eabdca29",
-                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -70,6 +77,28 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "eb0ebeda-7c22-4f19-8ead-a44ee9695f1c",
+                    "path": "<Keyboard>/F",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SceneLoad",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a2dd820b-9e31-4ee6-9c8a-88ca2fb8ab59",
+                    "path": "<Keyboard>/B",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StartDialog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

@@ -35,6 +35,24 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SceneLoad"",
+                    ""type"": ""Button"",
+                    ""id"": ""18afbefa-5e94-4be3-b634-f700dc2dcdde"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""StartDialog"",
+                    ""type"": ""Button"",
+                    ""id"": ""15fea59f-52e6-4c17-b6d9-636b8134774c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -53,17 +71,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""name"": ""up"",
                     ""id"": ""8136e4f5-9ca8-4405-a678-c06c99e583be"",
                     ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""076896eb-e098-4f79-9b7b-e2c1eabdca29"",
-                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -92,6 +99,28 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eb0ebeda-7c22-4f19-8ead-a44ee9695f1c"",
+                    ""path"": ""<Keyboard>/F"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SceneLoad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a2dd820b-9e31-4ee6-9c8a-88ca2fb8ab59"",
+                    ""path"": ""<Keyboard>/B"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartDialog"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -101,6 +130,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+        m_Player_SceneLoad = m_Player.FindAction("SceneLoad", throwIfNotFound: true);
+        m_Player_StartDialog = m_Player.FindAction("StartDialog", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -161,11 +192,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Movement;
+    private readonly InputAction m_Player_SceneLoad;
+    private readonly InputAction m_Player_StartDialog;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        public InputAction @SceneLoad => m_Wrapper.m_Player_SceneLoad;
+        public InputAction @StartDialog => m_Wrapper.m_Player_StartDialog;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -178,6 +213,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @SceneLoad.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSceneLoad;
+                @SceneLoad.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSceneLoad;
+                @SceneLoad.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSceneLoad;
+                @StartDialog.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStartDialog;
+                @StartDialog.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStartDialog;
+                @StartDialog.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStartDialog;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -185,6 +226,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @SceneLoad.started += instance.OnSceneLoad;
+                @SceneLoad.performed += instance.OnSceneLoad;
+                @SceneLoad.canceled += instance.OnSceneLoad;
+                @StartDialog.started += instance.OnStartDialog;
+                @StartDialog.performed += instance.OnStartDialog;
+                @StartDialog.canceled += instance.OnStartDialog;
             }
         }
     }
@@ -192,5 +239,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnSceneLoad(InputAction.CallbackContext context);
+        void OnStartDialog(InputAction.CallbackContext context);
     }
 }

@@ -2073,6 +2073,8 @@ GameObject:
   - component: {fileID: 4928743883536175947}
   - component: {fileID: 2306429386720835686}
   - component: {fileID: -1487646212027842447}
+  - component: {fileID: 2739019014598566978}
+  - component: {fileID: 1704831406334964381}
   m_Layer: 0
   m_Name: AiTWO
   m_TagString: Untagged
@@ -2195,6 +2197,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7d23c144-c085-4b28-98f4-37b1ed89c82c
     m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2739019014598566978}
+        m_TargetAssemblyTypeName: SceneChangeAction, Assembly-CSharp
+        m_MethodName: TryLoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 18afbefa-5e94-4be3-b634-f700dc2dcdde
+    m_ActionName: Player/SceneLoad[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1704831406334964381}
+        m_TargetAssemblyTypeName: PlayerActions.DialogAction, Assembly-CSharp
+        m_MethodName: TryStartDialog
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 15fea59f-52e6-4c17-b6d9-636b8134774c
+    m_ActionName: Player/StartDialog[/Keyboard/b]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -2262,6 +2296,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storage: {fileID: 11400000, guid: 64cba6bc8293c7ee19beebc84738f12f, type: 2}
+--- !u!114 &2739019014598566978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7934752354635551181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3ecc5b9bc4845588275d8251819fbd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1704831406334964381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7934752354635551181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef560a6d24447b58920147992c76f7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8091279336633621361
 GameObject:
   m_ObjectHideFlags: 0

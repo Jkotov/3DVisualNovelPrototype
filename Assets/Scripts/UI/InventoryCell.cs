@@ -13,7 +13,8 @@ namespace UI
             set
             {
                 slot = value;
-                image.sprite = slot.item.sprite;
+                if (slot.item != null)
+                    image.sprite = slot.item.sprite;
                 countTextMesh.text = slot.count.ToString();
             }
         }

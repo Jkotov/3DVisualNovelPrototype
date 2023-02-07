@@ -2,10 +2,10 @@ using Quest;
 using UnityEngine;
 
 [RequireComponent(typeof(QuestStatusChanger))]
-public class QuestTrigger : EventTrigger
+public class QuestTrigger : MonoBehaviour
 {
     private QuestStatusChanger questStatusChanger;
-    protected override void StartEvent()
+    public void StartQuest()
     {
         questStatusChanger.StartQuest();
     }

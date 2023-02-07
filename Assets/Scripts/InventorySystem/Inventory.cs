@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UnityEngine;
 
 namespace InventorySystem
@@ -7,7 +8,8 @@ namespace InventorySystem
     public class Inventory : MonoBehaviour
     {
         [SerializeField] private InventoryStorage storage;
-        public IReadOnlyCollection<InventorySlot> Slots => storage.Slots;
+        public ReadOnlyCollection<InventorySlot> Slots => storage.Slots;
+        public int MaxSlots => storage.MaxSlots;
 
         public bool TryAddItems(InventoryItem item, int count)
         {

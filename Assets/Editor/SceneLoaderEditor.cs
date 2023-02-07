@@ -6,7 +6,7 @@ public class SceneLoaderEditor : Editor
     public override void OnInspectorGUI()
     {
         var sceneLoader = target as SceneLoader;
-        var oldScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(sceneLoader.scene);
+        var oldScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(sceneLoader.Scene);
 
         serializedObject.Update();
 
