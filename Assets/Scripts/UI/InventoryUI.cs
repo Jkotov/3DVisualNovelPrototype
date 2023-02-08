@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using InventorySystem;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace UI
 {
@@ -10,9 +12,15 @@ namespace UI
         public static InventoryUI Instance { get; private set; }
         public bool IsShowing { get; private set; }
         [SerializeField] private GameObject inventoryWindow;
+        [SerializeField] private TextMeshProUGUI itemName;
+        [SerializeField] private TextMeshProUGUI itemDescription;
         private InventoryCell[] cells;
         private void Awake()
         {
+            if (FindObjectOfType<EventSystem>() == null)
+            {
+                var eventSystem = new GameObject("EventSystem", typeof(EventSystem), typeof(StandaloneInputModule));
+            }
             
             if (Instance != null && Instance != this)
             {
@@ -24,8 +32,27 @@ namespace UI
                 DontDestroyOnLoad(this);
             }
             cells = inventoryWindow.GetComponentsInChildren<InventoryCell>();
+            foreach (var cell in cells)
+            {
+                cell.PointerExeted.AddListener(HideItemTooltip);
+                cell.PointerEntered.AddListener(ShowItemTooltip);
+            }
         }
 
+        private void ShowItemTooltip(InventoryCell cell)
+        {
+            if (cell.Slot.item == null)
+                return;
+            itemName.text = cell.Slot.item.itemName;
+            itemDescription.text = cell.Slot.item.description;
+        }
+
+        private void HideItemTooltip()
+        {
+            itemName.text = "";
+            itemDescription.text = "";
+        }
+        
         public void ShowInventory(Inventory inventory)
         {
             IsShowing = true;

@@ -4,6 +4,7 @@ namespace Dialog
 {
     public class DialogManager
     {
+        public bool IsDialogStarted => isDialogStarted;
         public static DialogManager Instance { get; } = new DialogManager();
         public readonly UnityEvent<Actor> activeActorChanged;
         private bool isDialogStarted;

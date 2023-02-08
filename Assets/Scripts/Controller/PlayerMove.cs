@@ -1,3 +1,4 @@
+using Dialog;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -24,6 +25,8 @@ namespace Controller
         
         private void FixedUpdate()
         {
+            if (CanMove == false)
+                move = Vector2.zero;
             SetForwardSpeed(move.y * forwardSpeed);
             SetTurnSpeed(move.x * rotationSpeed);
         }
@@ -39,5 +42,7 @@ namespace Controller
             transform.Rotate(Vector3.up, speed * Time.fixedDeltaTime);
             turnSpeedApplied?.Invoke(speed);
         }
+
+        private bool CanMove => DialogManager.Instance.IsDialogStarted == false;
     }
 }

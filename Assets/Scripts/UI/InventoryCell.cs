@@ -1,12 +1,16 @@
 using InventorySystem;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace UI
 {
-    public class InventoryCell : MonoBehaviour
+    public class InventoryCell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
+        public UnityEvent<InventoryCell> PointerEntered;
+        public UnityEvent PointerExeted;
         public InventorySlot Slot
         {
             get => slot;
@@ -21,5 +25,15 @@ namespace UI
         [SerializeField] private TextMeshProUGUI countTextMesh;
         [SerializeField] private Image image;
         private InventorySlot slot;
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            PointerEntered?.Invoke(this);
+        }
+        
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            PointerExeted?.Invoke();
+        }
     }
 }
