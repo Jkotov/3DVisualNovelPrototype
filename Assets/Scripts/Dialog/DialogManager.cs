@@ -1,3 +1,4 @@
+using InventorySystem;
 using UnityEngine.Events;
 
 namespace Dialog
@@ -8,11 +9,13 @@ namespace Dialog
         public static DialogManager Instance { get; } = new DialogManager();
         public readonly UnityEvent<Actor> activeActorChanged;
         private bool isDialogStarted;
+        public Inventory CurrentInventory { get; private set; }
 
-        public void StartDialog(DialogBlock firstDialog)
+        public void StartDialog(DialogBlock firstDialog, Inventory inventory = null)
         {
             if (isDialogStarted)
                 return;
+            CurrentInventory = inventory;
             isDialogStarted = true;
             SubscribeToAnswerWindows();
             DialogWindow.Instance.ShowDialogWindow();
@@ -37,6 +40,7 @@ namespace Dialog
         {
             activeActorChanged?.Invoke(dialogBlock.actor);
             DialogWindow.Instance.ShowDialogBlock(dialogBlock);
+            dialogBlock.DoActions();
         }
 
         private void AnswerPressed(Answer answer)
@@ -45,7 +49,6 @@ namespace Dialog
                 ShowDialogBlock(answer.nextDialogBlock);
             else
                 FinishDialog();
-            
         }
 
         static DialogManager()

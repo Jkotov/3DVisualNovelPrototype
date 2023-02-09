@@ -1571,7 +1571,6 @@ GameObject:
   - component: {fileID: 372660647}
   - component: {fileID: 372660646}
   - component: {fileID: 372660645}
-  - component: {fileID: 372660652}
   - component: {fileID: 372660651}
   - component: {fileID: 372660653}
   m_Layer: 0
@@ -1684,21 +1683,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a79b8edc924fdfb86c5be0a49d14ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &372660652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 372660643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75dfb6a55d674cbfb73052fd60c0bb73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quest: {fileID: 11400000, guid: 9bd43d1f439b5fac68a02527f991880b, type: 2}
-  questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
-  status: 1
+  questStatusChanger:
+    quest: {fileID: 0}
+    isChangeQuest: 0
+    questStatus: 0
+    isChangeQuestTask: 0
+    questTask: {fileID: 0}
+    taskStatus: 0
 --- !u!114 &372660653
 MonoBehaviour:
   m_ObjectHideFlags: 0

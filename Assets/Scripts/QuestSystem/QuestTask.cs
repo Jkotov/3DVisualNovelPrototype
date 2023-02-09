@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Quest
+namespace QuestSystem
 {
     [Serializable]
     [CreateAssetMenu(fileName = "New Task", menuName = "ScriptableObjects/QuestTask")]

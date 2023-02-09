@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Quest
+namespace QuestSystem
 {
     [RequireComponent(typeof(TextMeshProUGUI))]
     public class QuestStatusListener : MonoBehaviour

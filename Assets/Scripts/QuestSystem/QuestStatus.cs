@@ -1,4 +1,4 @@
-namespace Quest
+namespace QuestSystem
 {
     public enum QuestStatus
     {

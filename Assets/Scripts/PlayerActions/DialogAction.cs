@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Dialog;
+using InventorySystem;
 using UnityEngine;
 
 namespace PlayerActions
@@ -7,11 +8,11 @@ namespace PlayerActions
     public class DialogAction : MonoBehaviour
     {
         private readonly List<DialogStarter> dialogStarters = new List<DialogStarter>();
-
+        
         public void TryStartDialog()
         {
             if (dialogStarters.Count > 0)
-                dialogStarters[0].StartDialog();
+                dialogStarters[0].StartDialog(GetComponent<Inventory>());
         }
         
         private void OnTriggerEnter(Collider other)

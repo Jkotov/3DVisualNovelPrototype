@@ -1,17 +1,11 @@
-using Quest;
+using QuestSystem;
 using UnityEngine;
 
-[RequireComponent(typeof(QuestStatusChanger))]
 public class QuestTrigger : MonoBehaviour
 {
-    private QuestStatusChanger questStatusChanger;
+    [SerializeField] private QuestStatusChanger questStatusChanger;
     public void StartQuest()
     {
-        questStatusChanger.StartQuest();
-    }
-
-    private void Awake()
-    {
-        questStatusChanger = GetComponent<QuestStatusChanger>();
+        questStatusChanger.ChangeQuestStatus();
     }
 }

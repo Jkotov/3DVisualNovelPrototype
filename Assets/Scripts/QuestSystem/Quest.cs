@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
 
-namespace Quest
+namespace QuestSystem
 {
     [CreateAssetMenu(fileName = "New Quest", menuName = "ScriptableObjects/Quest")]
     public class Quest : ScriptableObject
@@ -14,24 +14,22 @@ namespace Quest
         [SerializeField] private List<QuestTask> tasks;
         public ReadOnlyCollection<QuestTask> Tasks => tasks.AsReadOnly();
 
-        public void StartQuest()
+        public bool TryChangeQuestStatus(QuestStatus status)
         {
-            questStatus = QuestStatus.Started;
-            QuestManager.Instance.StartQuest(this);
+            if (status == questStatus)
+                return false;
+            questStatus = status;
+            switch (status)
+            {
+                case QuestStatus.Started:
+                    QuestManager.Instance.StartQuest(this);
+                    break;
+                case QuestStatus.Finished:
+                    QuestManager.Instance.FinishQuest(this);
+                    break;
+            }
+            return true;
         }
-
-        public void FinishQuest()
-        {
-            questStatus = QuestStatus.Finished;
-            QuestManager.Instance.FinishQuest(this);
-        }
-
-        public void FailQuest()
-        {
-            questStatus = QuestStatus.Failed;
-            QuestManager.Instance.FinishQuest(this);
-        }
-    
         public void SetActiveTasksAsFinished()
         {
             foreach (var task in tasks)

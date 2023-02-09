@@ -1,3 +1,4 @@
+using InventorySystem;
 using UnityEngine;
 
 namespace Dialog
@@ -7,9 +8,9 @@ namespace Dialog
         [SerializeField] private DialogBlock firstDialogBlock;
 
         [ContextMenu("StartDialog")]
-        public void StartDialog()
+        public void StartDialog(Inventory inventory = null)
         {
-            DialogManager.Instance.StartDialog(firstDialogBlock);
+            DialogManager.Instance.StartDialog(firstDialogBlock, inventory);
         }
     }
 }

@@ -10,7 +10,6 @@ namespace UI
         
         public void OnPointerClick(PointerEventData eventData)
         {
-            Debug.Log("pressed");
             if (!InventoryUI.Instance.IsShowing)
                 InventoryUI.Instance.ShowInventory(inventory);
             else

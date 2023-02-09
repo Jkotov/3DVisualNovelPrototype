@@ -47,7 +47,7 @@ namespace Dialog
         {
             actorImage.sprite = block.actor.sprite;
             ShowMainText(block.blockText);
-            ShowAnswerWindows(block.answers);
+            ShowAnswerWindows(block.Answers);
             ActorName.UpdateText(block.actor.actorName);
         }
 

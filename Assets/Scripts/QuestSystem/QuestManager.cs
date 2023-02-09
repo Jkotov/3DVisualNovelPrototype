@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine.Events;
 
-namespace Quest
+namespace QuestSystem
 {
     public class QuestManager
     {
