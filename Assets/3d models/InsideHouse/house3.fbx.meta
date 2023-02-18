@@ -1,9 +1,54 @@
 fileFormatVersion: 2
 guid: 26265bbfd9ea1cc41b551a3926771831
 ModelImporter:
-  serializedVersion: 20200
+  serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blancbizaare
+    second: {fileID: 2100000, guid: e5d16ae1922c69541aa20c38fad6360f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bleutoitciel
+    second: {fileID: 2100000, guid: ad11a7cd793b12d44ba1376a9ca620be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bois
+    second: {fileID: 2100000, guid: 92e61438225f70843b4665fe8b9d3112, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fenetre
+    second: {fileID: 2100000, guid: d2def6512f5d8d34ba3038a93d98e46f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gris_
+    second: {fileID: 2100000, guid: 0afd79186bfd7c74286678d50c4b87f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: murdegeu
+    second: {fileID: 2100000, guid: c0107a94ffb335d49985744cc6d0b646, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: noirfernormal
+    second: {fileID: 2100000, guid: 511e393370d90a24095b69d405c637a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rougeporte
+    second: {fileID: 2100000, guid: 558ef6f451e72914ca8badb7315af97b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rougetoitrond
+    second: {fileID: 2100000, guid: 03cb38861ce39b84f9acdab8fd797d77, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -14,6 +59,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -43,6 +89,7 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -54,6 +101,7 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
+    optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
