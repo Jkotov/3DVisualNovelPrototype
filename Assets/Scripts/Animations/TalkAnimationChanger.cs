@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Dialog;
 using UnityEngine;
 
@@ -21,9 +22,9 @@ namespace Animations
             }
         }
 
-        private void OnActiveActorChange(Actor activeActor)
+        private void OnActiveActorChange(List<Actor> activeActor)
         {
-            anim.SetBool(isTalking.cached, actor == activeActor); // slow but easy for typing
+            anim.SetBool(isTalking.cached, activeActor.Contains(actor)); // slow but easy for typing
         }
     }
 }

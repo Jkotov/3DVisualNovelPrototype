@@ -12,6 +12,7 @@ namespace QuestSystem
         public int priority;
         [NonSerialized] public QuestStatus questStatus = QuestStatus.NotStarted;
         [SerializeField] private List<QuestTask> tasks;
+        [SerializeField] private List<StatusForThought> thoughts;
         public ReadOnlyCollection<QuestTask> Tasks => tasks.AsReadOnly();
 
         public bool TryChangeQuestStatus(QuestStatus status)
@@ -28,6 +29,12 @@ namespace QuestSystem
                     QuestManager.Instance.FinishQuest(this);
                     break;
             }
+            foreach (var thought in thoughts)
+            {
+                if (thought.targetStatus != status)
+                    continue;
+                thought.thought.AddThought();
+            }
             return true;
         }
         public void SetActiveTasksAsFinished()
@@ -42,6 +49,14 @@ namespace QuestSystem
 
         public void ChangeTaskStatus(QuestTask task, QuestStatus status)
         {
+            if (task.status == status)
+                return;
+            foreach (var thought in task.thoughts)
+            {
+                if (thought.targetStatus != status)
+                    continue;
+                thought.thought.AddThought();
+            }
             task.status = status;
             QuestManager.Instance.QuestTaskUpdated(this);
         }

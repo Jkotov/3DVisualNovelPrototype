@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine.Events;
@@ -9,12 +10,15 @@ namespace QuestSystem
         public static QuestManager Instance { get; } = new QuestManager();
         public ReadOnlyCollection<Quest> ActiveQuests => activeQuests.AsReadOnly();
         public ReadOnlyCollection<Quest> FinishedQuests => activeQuests.AsReadOnly();
+        public ReadOnlyCollection<Thought> Thoughts => thoughts.AsReadOnly();
         public UnityEvent<Quest> questStatusUpdated = new UnityEvent<Quest>();
         public UnityEvent<Quest> questTaskUpdated = new UnityEvent<Quest>();
+        public UnityEvent<Thought> thoughtAdded = new UnityEvent<Thought>();
 
         private List<Quest> activeQuests = new List<Quest>();
         private List<Quest> finishedQuests = new List<Quest>();
-    
+        private List<Thought> thoughts;
+
         public void StartQuest(Quest quest)
         {
             if (ActiveQuests.Contains(quest) || FinishedQuests.Contains(quest))
@@ -35,6 +39,12 @@ namespace QuestSystem
         public void QuestTaskUpdated(Quest quest)
         {
             questTaskUpdated?.Invoke(quest);
+        }
+
+        public void AddThought(Thought thought)
+        {
+            thoughts.Add(thought);
+            thoughtAdded?.Invoke(thought);
         }
 
         public void LoadQuests(IEnumerable<Quest> active, IEnumerable<Quest> finished)

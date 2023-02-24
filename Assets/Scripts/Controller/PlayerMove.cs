@@ -8,8 +8,8 @@ namespace Controller
     [RequireComponent(typeof(CharacterController))]
     public class PlayerMove : Movement
     {
-        [SerializeField] float rotationSpeed;
-        [SerializeField] float forwardSpeed;
+        [SerializeField] private float rotationSpeed;
+        [SerializeField] private float forwardSpeed;
         private CharacterController controller;
         private Vector2 move;
         

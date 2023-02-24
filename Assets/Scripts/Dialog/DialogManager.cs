@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using InventorySystem;
 using UnityEngine.Events;
 
@@ -5,18 +6,17 @@ namespace Dialog
 {
     public class DialogManager
     {
-        public bool IsDialogStarted => isDialogStarted;
+        public bool IsDialogStarted { get; private set; }
         public static DialogManager Instance { get; } = new DialogManager();
-        public readonly UnityEvent<Actor> activeActorChanged;
-        private bool isDialogStarted;
+        public readonly UnityEvent<List<Actor>> activeActorChanged;
         public Inventory CurrentInventory { get; private set; }
 
         public void StartDialog(DialogBlock firstDialog, Inventory inventory = null)
         {
-            if (isDialogStarted)
+            if (IsDialogStarted)
                 return;
             CurrentInventory = inventory;
-            isDialogStarted = true;
+            IsDialogStarted = true;
             SubscribeToAnswerWindows();
             DialogWindow.Instance.ShowDialogWindow();
             ShowDialogBlock(firstDialog);
@@ -24,7 +24,7 @@ namespace Dialog
 
         public void FinishDialog()
         {
-            isDialogStarted = false;
+            IsDialogStarted = false;
             DialogWindow.Instance.HideDialogWindow();
         }
         
@@ -38,7 +38,7 @@ namespace Dialog
 
         private void ShowDialogBlock(DialogBlock dialogBlock)
         {
-            activeActorChanged?.Invoke(dialogBlock.actor);
+            activeActorChanged?.Invoke(dialogBlock.actors);
             DialogWindow.Instance.ShowDialogBlock(dialogBlock);
             dialogBlock.DoActions();
         }
@@ -57,7 +57,7 @@ namespace Dialog
 
         private DialogManager()
         {
-            activeActorChanged = new UnityEvent<Actor>();
+            activeActorChanged = new UnityEvent<List<Actor>>();
         }
     }
 }

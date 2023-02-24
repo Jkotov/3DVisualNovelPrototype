@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace QuestSystem
@@ -9,6 +10,7 @@ namespace QuestSystem
     {
         public int priority;
         public string description;
+        public List<StatusForThought> thoughts;
         [NonSerialized] public QuestStatus status = QuestStatus.NotStarted;
     }
 }

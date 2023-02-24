@@ -9,7 +9,7 @@ namespace Dialog
     public class DialogBlock : ScriptableObject
     {
         public string blockText;
-        public Actor actor;
+        public List<Actor> actors;
         public List<Answer> Answers => answers.FindAll(answer => answer.IsActive);
         [SerializeField] private List<Answer> answers;
         [SerializeField] private List<QuestStatusChanger> statusChangers;

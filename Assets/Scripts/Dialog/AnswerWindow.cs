@@ -19,7 +19,6 @@ namespace Dialog
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            Debug.Log("Pressed");
             answerPressed?.Invoke(answer);
         }
     }
