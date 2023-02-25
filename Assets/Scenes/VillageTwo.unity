@@ -11355,6 +11355,11 @@ PrefabInstance:
       propertyPath: forwardSpeed
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6613763792614553269, guid: caba911f3f7e93440a156242610a6cff,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 29cc7012fed4f4848a7fee890ebf3f91, type: 2}
     - target: {fileID: 7123725839344200212, guid: caba911f3f7e93440a156242610a6cff,
         type: 3}
       propertyPath: orthographic
