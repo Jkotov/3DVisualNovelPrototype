@@ -26,3 +26,7 @@ MonoBehaviour:
   answers:
   - text: "\u041F\u043E\u0445\u043E\u0436\u0435, \u0447\u0442\u043E \u0410\u0438\u2026"
     nextDialogBlock: {fileID: 11400000, guid: 55734791d1edc7f4388cdb497ba1be06, type: 2}
+    questConditions: []
+    itemConditions: []
+  statusChangers: []
+  inventoryActions: []
