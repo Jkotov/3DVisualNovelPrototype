@@ -17,3 +17,4 @@ MonoBehaviour:
   tasks:
   - {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
   - {fileID: 11400000, guid: f9578a657d52e33aebcc628165531948, type: 2}
+  thoughts: []

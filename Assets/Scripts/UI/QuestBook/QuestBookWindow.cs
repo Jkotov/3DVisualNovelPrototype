@@ -131,21 +131,21 @@ namespace UI.QuestBook
         private List<RectPageIndex> CalcRects(List<RectTransform> rects)
         {
             List<RectPageIndex> rectPageIndices = new List<RectPageIndex>(rects.Count);
-            int currentPage = 0;
+            int page = 0;
             float currentHeight = 0;
             foreach (var rect in rects)
             {
                 if (CheckRectSize(rect) == false)
                     continue;
-                while (rect.sizeDelta.y + currentHeight > pages[currentPage % pages.Count].sizeDelta.y)
+                while (rect.sizeDelta.y + currentHeight > pages[page % pages.Count].sizeDelta.y)
                 {
-                    currentPage++;
+                    page++;
                     currentHeight = 0;
                 }
                 currentHeight += rect.sizeDelta.y;
-                var anchoredPosition = pages[currentPage % pages.Count].anchoredPosition;
+                var anchoredPosition = pages[page % pages.Count].anchoredPosition;
                 anchoredPosition.y -= currentHeight;
-                rectPageIndices.Add(new RectPageIndex(rect, currentPage));
+                rectPageIndices.Add(new RectPageIndex(rect, page));
             }
             return rectPageIndices;
         }

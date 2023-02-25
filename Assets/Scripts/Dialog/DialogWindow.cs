@@ -16,7 +16,7 @@ namespace Dialog
         [SerializeField] private RectTransform answerWindowsContentRect;
         [SerializeField] private GameObject scrollView;
         [SerializeField] private ActorsWindowsGroup actorsWindowsGroup;
-        [SerializeField] private MainTextDialogWindow ActorName;
+        [SerializeField] private GameObject staticGameObject;
         public void ShowDialogWindow()
         {
             if (FindObjectOfType<EventSystem>() == null)
@@ -26,7 +26,7 @@ namespace Dialog
             mainText.gameObject.SetActive(true);
             scrollView.SetActive(true);
             actorsWindowsGroup.gameObject.SetActive(true);
-            ActorName.gameObject.SetActive(true);
+            staticGameObject.SetActive(true);
         }
         
         public void HideDialogWindow()
@@ -37,8 +37,8 @@ namespace Dialog
                 answersWindow.gameObject.SetActive(false);
             }
             actorsWindowsGroup.gameObject.SetActive(false);
-            ActorName.gameObject.SetActive(false);
             scrollView.SetActive(false);
+            staticGameObject.SetActive(false);
         }
 
         public void ShowDialogBlock(DialogBlock block)
