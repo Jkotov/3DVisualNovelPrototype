@@ -27,7 +27,8 @@ namespace UI.QuestBook
 
         private void Awake()
         {
-            RectTransform = GetComponent<RectTransform>(); 
+            RectTransform = GetComponent<RectTransform>();
+            textMeshProUGUI = GetComponent<TextMeshProUGUI>();
         }
     }
 }

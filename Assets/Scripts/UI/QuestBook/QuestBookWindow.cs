@@ -13,22 +13,89 @@ namespace UI.QuestBook
         [SerializeField] private GameObject thoughtPrefab;
         [SerializeField] private List<RectTransform> pages;
         [SerializeField] private QuestPage questPage;
-        private List<QuestBookTextElement> activeQuestLinkRects = new List<QuestBookTextElement>();
-        private List<QuestBookTextElement> finishedQuestLinkRects = new List<QuestBookTextElement>();
+        [SerializeField] private OpenBookButton openBookButton;
+        [SerializeField] private List<PageChangeButton> pageChangeButtons;
+        private List<QuestDescriptionButton> activeQuestLinkRects = new List<QuestDescriptionButton>();
+        private List<QuestDescriptionButton> finishedQuestLinkRects = new List<QuestDescriptionButton>();
         private List<QuestBookTextElement> thoughtTextElements = new List<QuestBookTextElement>();
         private List<RectPageIndex> activeLinkRects;
         private List<RectPageIndex> finishedLinkRects;
         private List<RectPageIndex> thoughtRects;
         private List<RectPageIndex> currentList;
         private int currentPage;
+        private bool isOpened;
 
+        private void Awake()
+        {
+            openBookButton.pressed.AddListener(BookButtonListener);
+            foreach (var pageChangeButton in pageChangeButtons)
+            {
+                pageChangeButton.pressed.AddListener(TryChangePage);
+            }
+        }
+
+        private void BookButtonListener()
+        {
+            if (isOpened)
+            {
+                CloseBook();
+            }
+            else
+            {
+                OpenBook();
+            }
+        }
+
+        private void CloseBook()
+        {
+            isOpened = false;
+            foreach (var button in pageChangeButtons)
+            {
+                button.gameObject.SetActive(false);
+            }
+
+            foreach (var page in pages)
+            {
+                page.gameObject.SetActive(false);
+            }
+            questPage.gameObject.SetActive(false);
+            if (currentList != null)
+            {
+                foreach (var rectPageIndex in currentList)
+                {
+                    rectPageIndex.rectTransform.gameObject.SetActive(false);
+                }
+            }
+        }
+        
+        public void ShowPageChangeButtons()
+        {
+            foreach (var button in pageChangeButtons)
+            {
+                button.gameObject.SetActive(false);
+                foreach (var rectPageIndex in currentList)
+                {
+                    if (rectPageIndex.page == button.RelativePages + currentPage)
+                    {
+                        button.gameObject.SetActive(true);
+                        break;
+                    }
+                }
+            }
+        }
+        
         public void OpenBook()
         {
+            isOpened = true;
             UpdateTextElements();
 
             activeLinkRects = CalcRects(activeQuestLinkRects.Select(a =>  a.RectTransform).ToList());
             finishedLinkRects = CalcRects(finishedQuestLinkRects.Select(a =>  a.RectTransform).ToList());
             thoughtRects = CalcRects(thoughtTextElements.Select(a =>  a.RectTransform).ToList());
+            foreach (var page in pages)
+            {
+                page.gameObject.SetActive(true);
+            }
             OpenActiveQuestLinks();
         }
 
@@ -37,6 +104,7 @@ namespace UI.QuestBook
             questPage.gameObject.SetActive(false);
             currentList = activeLinkRects;
             currentPage = 0;
+            OpenPage(currentList, currentPage);
         }
 
         public void OpenFinishedQuestLinks()
@@ -44,6 +112,7 @@ namespace UI.QuestBook
             questPage.gameObject.SetActive(false);
             currentList = finishedLinkRects;
             currentPage = 0;
+            OpenPage(currentList, currentPage);
         }
 
         public void OpenThoughts()
@@ -51,6 +120,7 @@ namespace UI.QuestBook
             questPage.gameObject.SetActive(false);
             currentList = thoughtRects;
             currentPage = 0;
+            OpenPage(currentList, currentPage);
         }
 
         public void TryChangePage(int relativePageIndex)
@@ -67,67 +137,85 @@ namespace UI.QuestBook
 
         public void OpenQuestPage(Quest quest)
         {
-            currentList = null;
-            questPage.gameObject.SetActive(true);
             foreach (var page in currentList)
             {
                 page.rectTransform.gameObject.SetActive(false);
             }
+            foreach (var pageChangeButton in pageChangeButtons)
+            {
+                pageChangeButton.gameObject.SetActive(false);
+            }
+            currentList = null;
+            questPage.gameObject.SetActive(true);
             questPage.SetQuest(quest);
         }
         
         private void OpenPage(List<RectPageIndex> rectPageIndices, int page)
         {
+            var pageNumbers = GetNearPages(page);
             foreach (var rectPageIndex in rectPageIndices)
             {
-                rectPageIndex.rectTransform.gameObject.SetActive(rectPageIndex.page == page);
+                rectPageIndex.rectTransform.gameObject.SetActive(pageNumbers.Contains(rectPageIndex.page));
             }
+            currentPage = page;
+            ShowPageChangeButtons();
         }
 
         private void UpdateTextElements()
         {
-            var questNames = new List<string>(Math.Max(QuestManager.Instance.ActiveQuests.Count,
-                QuestManager.Instance.FinishedQuests.Count));
-            var questDescriptions = new List<string>(Math.Max(Math.Max
-                    (QuestManager.Instance.ActiveQuests.Count, QuestManager.Instance.FinishedQuests.Count),
-                QuestManager.Instance.Thoughts.Count));
-            foreach (var quest in QuestManager.Instance.ActiveQuests)
-            {
-                questNames.Add(quest.name);
-            }
-            UpdateTextElementList(questNames, questNamePrefab, ref activeQuestLinkRects);
-            questNames.Clear();
-            questDescriptions.Clear();
-            foreach (var quest in QuestManager.Instance.FinishedQuests)
-            {
-                questNames.Add(quest.name);
-            }
-            UpdateTextElementList(questNames, questNamePrefab, ref finishedQuestLinkRects);
-            questDescriptions.Clear();
+            var questNames = new List<string>(QuestManager.Instance.Thoughts.Count);
+            UpdateQuestButtons(QuestManager.Instance.ActiveQuests, questNamePrefab, ref activeQuestLinkRects);
+            UpdateQuestButtons(QuestManager.Instance.FinishedQuests, questNamePrefab, ref finishedQuestLinkRects);
             foreach (var thought in QuestManager.Instance.Thoughts)
             {
-                questDescriptions.Add(thought.description);
+                questNames.Add(thought.description);
             }
-            UpdateTextElementList(questDescriptions, thoughtPrefab, ref thoughtTextElements);
+            UpdateTextElementList(questNames, thoughtPrefab, ref thoughtTextElements);
         }
-        
+
         private void UpdateTextElementList(List<string> stringList, GameObject textElementPrefab, ref List<QuestBookTextElement> textElements)
         {
             if (textElements.Capacity < stringList.Count)
                 textElements.AddRange(new List<QuestBookTextElement>(stringList.Count - textElements.Capacity)); 
             for (int i = 0; i < stringList.Count; i++)
             {
-                 textElements[i] = textElements[i] == null ?
-                    Instantiate(textElementPrefab).GetComponent<QuestBookTextElement>() :
+                if (textElements.Count < i + 1)
+                    textElements.Add(null);
+                textElements[i] = textElements[i] == null ?
+                    Instantiate(textElementPrefab, transform).GetComponent<QuestBookTextElement>() :
                     textElements[i];
-                 textElements[i].gameObject.SetActive(false);
+                textElements[i].Text = stringList[i]; 
+                textElements[i].gameObject.SetActive(false);
             }
             for (int i = stringList.Count; i < textElements.Count; i++)
             {
                 Destroy(textElements[i].gameObject);
             }
         }
-
+        
+        
+        private void UpdateQuestButtons(IList<Quest> questList, GameObject textElementPrefab, ref List<QuestDescriptionButton> textElements)
+        {
+            if (textElements.Capacity < questList.Count)
+                textElements.AddRange(new List<QuestDescriptionButton>(questList.Count - textElements.Capacity)); 
+            for (int i = 0; i < questList.Count; i++)
+            {
+                if (textElements.Count < i + 1)
+                    textElements.Add(null);
+                textElements[i] = textElements[i] == null ?
+                    Instantiate(textElementPrefab, transform).GetComponent<QuestDescriptionButton>() :
+                    textElements[i]; 
+                textElements[i].gameObject.SetActive(false);
+                textElements[i].Quest = questList[i];
+                textElements[i].pressed.RemoveAllListeners();
+                textElements[i].pressed.AddListener(OpenQuestPage);
+            }
+            for (int i = questList.Count; i < textElements.Count; i++)
+            {
+                Destroy(textElements[i].gameObject);
+            }
+        }
+        
         private List<RectPageIndex> CalcRects(List<RectTransform> rects)
         {
             List<RectPageIndex> rectPageIndices = new List<RectPageIndex>(rects.Count);
@@ -145,6 +233,7 @@ namespace UI.QuestBook
                 currentHeight += rect.sizeDelta.y;
                 var anchoredPosition = pages[page % pages.Count].anchoredPosition;
                 anchoredPosition.y -= currentHeight;
+                rect.anchoredPosition = anchoredPosition;
                 rectPageIndices.Add(new RectPageIndex(rect, page));
             }
             return rectPageIndices;
@@ -162,6 +251,16 @@ namespace UI.QuestBook
             }
             Debug.LogWarning($"Rect {rect.gameObject.name} is too big");
             return false;
+        }
+
+        private List<int> GetNearPages(int page)
+        {
+            var res = new List<int>(pages.Count);
+            for (int i = 0; i < pages.Count; i++)
+            {
+                res.Add(page - (page % pages.Count) + i);
+            }
+            return res;
         }
         
         private struct RectPageIndex

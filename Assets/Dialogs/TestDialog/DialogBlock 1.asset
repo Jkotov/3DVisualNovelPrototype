@@ -29,9 +29,185 @@ MonoBehaviour:
     nextDialogBlock: {fileID: 11400000, guid: 55734791d1edc7f4388cdb497ba1be06, type: 2}
     questConditions: []
     itemConditions: []
-  statusChangers: []
-  inventoryActions: []
-    questConditions: []
-    itemConditions: []
-  statusChangers: []
+  statusChangers:
+  - quest: {fileID: 11400000, guid: 9bd43d1f439b5fac68a02527f991880b, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: c372766dd55cdada69293a4c5271c0a9, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: 7330a7872ec80365ca4f2ce0216720a4, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: 7330a7872ec80365ca4f2ce0216720a4, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: a12884d116f06956aab2112ec5699920, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: b5855fb6f0b51b28184a5536720dc73f, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: 6e7ff5d0aaab081c28f67c29be74a618, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: 1f0d85f449ae8f7ea9ffab2fcc4570a1, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: 4e962f35243771bbc8578a368bf29068, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: bdcd6884351afd11caa939ef4ba126af, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: f01c21b5d203e402896cd697392fae4a, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: 6b1b42c25cf042014ababf6526c7e94d, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: 65a8a000697f9d54a9aae278b0c13468, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: 18ccf8556bbbbc6b6953d9cbfaaa32d9, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: 7a85b18d04cbee37992803998ee210a8, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: 03cacd279d9651f8da3596a43e3addaf, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: 19692e18cbe56964abce4104f6c3fc6a, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: a57b19646c7a0c54f89fc73d42c58566, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: 8fb18be00098400848010601710d2255, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: cc50b8b0ded1ad653be0bda164a5d612, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: f17911d4cef68892994bda26950bfb4a, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: e623bd91fa813bfd5bbeed4a7fcf5326, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: c6e7872ab908ae274b0b4d16fa8f75e4, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: 343364626692b502aa8335530be2b10a, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: 957305575e46e67ccae5ec4aaac3b2c5, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: 662e88421c54ab89c9333011a70d6eda, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: a659d4d5abd0cc9049f783544bd67403, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: 7d65c159b3bdc474b80db9b7e5389370, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: 0724401a86e9f572d8349352bfefb888, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
+  - quest: {fileID: 11400000, guid: bc1a425a1d8d43384997a189844a88df, type: 2}
+    isChangeQuest: 1
+    questStatus: 1
+    isChangeQuestTask: 0
+    questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
+    taskStatus: 1
   inventoryActions: []

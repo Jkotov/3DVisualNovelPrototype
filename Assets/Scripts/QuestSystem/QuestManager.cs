@@ -17,7 +17,7 @@ namespace QuestSystem
 
         private List<Quest> activeQuests = new List<Quest>();
         private List<Quest> finishedQuests = new List<Quest>();
-        private List<Thought> thoughts;
+        private List<Thought> thoughts = new List<Thought>();
 
         public void StartQuest(Quest quest)
         {
