@@ -1,9 +1,24 @@
 fileFormatVersion: 2
 guid: 24df0c2c6c4f33240826e8e8410c9475
 ModelImporter:
-  serializedVersion: 20200
+  serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Matte plastic plate with holes.001
+    second: {fileID: 2100000, guid: 2ca03d81ae52c3c43881226eb7406667, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matte plastic .001
+    second: {fileID: 2100000, guid: a9af7382163fd1b43a4405010830902d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matte plastic_
+    second: {fileID: 2100000, guid: 5588faf85eaf3d24bae5d6c1852f29c2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -14,6 +29,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -43,6 +59,7 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -54,6 +71,7 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
+    optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8

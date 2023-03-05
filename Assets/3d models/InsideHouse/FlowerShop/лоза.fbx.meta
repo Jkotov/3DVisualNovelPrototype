@@ -1,9 +1,19 @@
 fileFormatVersion: 2
 guid: ba316421b9347334e9b1de417addb88f
 ModelImporter:
-  serializedVersion: 20200
+  serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0434\u0435\u0440\u0435\u0432\u043E \u043D\u0430 \u0443\u043B\u0438\u0446\u0435"
+    second: {fileID: 2100000, guid: 6741bc3eef38dd744bcd66904bbeffb6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u043B\u0438\u0441\u0442"
+    second: {fileID: 2100000, guid: a5a7a893ac7c1da40a273059ec17b196, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -14,6 +24,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -43,6 +54,7 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -54,6 +66,7 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
+    optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8

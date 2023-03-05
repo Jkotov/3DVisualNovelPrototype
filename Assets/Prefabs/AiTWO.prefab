@@ -2153,7 +2153,7 @@ MonoBehaviour:
   turnSpeedApplied:
     m_PersistentCalls:
       m_Calls: []
-  rotationSpeed: 30
+  rotationSpeed: 90
   forwardSpeed: 4
 --- !u!114 &792425040930966544
 MonoBehaviour:
@@ -2533,7 +2533,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -414921334540547795, guid: eaeb607695e817540ba3db27527e00d5, type: 3}
-  - {fileID: 8407554295463253165, guid: eaeb607695e817540ba3db27527e00d5, type: 3}
+  - {fileID: 2100000, guid: 29cc7012fed4f4848a7fee890ebf3f91, type: 2}
   - {fileID: -132874315165900226, guid: eaeb607695e817540ba3db27527e00d5, type: 3}
   - {fileID: -4558658336229636410, guid: eaeb607695e817540ba3db27527e00d5, type: 3}
   m_StaticBatchInfo:
