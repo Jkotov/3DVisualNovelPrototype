@@ -9,7 +9,7 @@ namespace QuestSystem
     {
         public static QuestManager Instance { get; } = new QuestManager();
         public ReadOnlyCollection<Quest> ActiveQuests => activeQuests.AsReadOnly();
-        public ReadOnlyCollection<Quest> FinishedQuests => activeQuests.AsReadOnly();
+        public ReadOnlyCollection<Quest> FinishedQuests => finishedQuests.AsReadOnly();
         public ReadOnlyCollection<Thought> Thoughts => thoughts.AsReadOnly();
         public UnityEvent<Quest> questStatusUpdated = new UnityEvent<Quest>();
         public UnityEvent<Quest> questTaskUpdated = new UnityEvent<Quest>();

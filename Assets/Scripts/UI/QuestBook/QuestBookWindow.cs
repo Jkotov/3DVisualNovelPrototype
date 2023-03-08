@@ -14,6 +14,9 @@ namespace UI.QuestBook
         [SerializeField] private List<RectTransform> pages;
         [SerializeField] private QuestPage questPage;
         [SerializeField] private OpenBookButton openBookButton;
+        [SerializeField] private OpenBookButton openActiveQuests;
+        [SerializeField] private OpenBookButton openFinishedQuests;
+        [SerializeField] private OpenBookButton openThoughts;
         [SerializeField] private List<PageChangeButton> pageChangeButtons;
         private List<QuestDescriptionButton> activeQuestLinkRects = new List<QuestDescriptionButton>();
         private List<QuestDescriptionButton> finishedQuestLinkRects = new List<QuestDescriptionButton>();
@@ -28,10 +31,14 @@ namespace UI.QuestBook
         private void Awake()
         {
             openBookButton.pressed.AddListener(BookButtonListener);
+            openActiveQuests.pressed.AddListener(OpenActiveQuestLinks);
+            openFinishedQuests.pressed.AddListener(OpenFinishedQuestLinks);
+            openThoughts.pressed.AddListener(OpenThoughts);
             foreach (var pageChangeButton in pageChangeButtons)
             {
                 pageChangeButton.pressed.AddListener(TryChangePage);
             }
+            DontDestroyOnLoad(gameObject);
         }
 
         private void BookButtonListener()
@@ -66,6 +73,9 @@ namespace UI.QuestBook
                     rectPageIndex.rectTransform.gameObject.SetActive(false);
                 }
             }
+            openActiveQuests.gameObject.SetActive(false);
+            openFinishedQuests.gameObject.SetActive(false);
+            openThoughts.gameObject.SetActive(false);
         }
         
         public void ShowPageChangeButtons()
@@ -97,11 +107,20 @@ namespace UI.QuestBook
                 page.gameObject.SetActive(true);
             }
             OpenActiveQuestLinks();
+            
+            openActiveQuests.gameObject.SetActive(true);
+            openFinishedQuests.gameObject.SetActive(true);
+            openThoughts.gameObject.SetActive(true);
         }
 
         public void OpenActiveQuestLinks()
         {
             questPage.gameObject.SetActive(false);
+            if (currentList != null)
+                foreach (var element in currentList)
+                {
+                    element.rectTransform.gameObject.SetActive(false);
+                }  
             currentList = activeLinkRects;
             currentPage = 0;
             OpenPage(currentList, currentPage);
@@ -110,6 +129,11 @@ namespace UI.QuestBook
         public void OpenFinishedQuestLinks()
         {
             questPage.gameObject.SetActive(false);
+            if (currentList != null)
+              foreach (var element in currentList)
+              {
+                    element.rectTransform.gameObject.SetActive(false);
+              }  
             currentList = finishedLinkRects;
             currentPage = 0;
             OpenPage(currentList, currentPage);
@@ -118,6 +142,11 @@ namespace UI.QuestBook
         public void OpenThoughts()
         {
             questPage.gameObject.SetActive(false);
+            if (currentList != null)
+                foreach (var element in currentList)
+                {
+                    element.rectTransform.gameObject.SetActive(false);
+                }  
             currentList = thoughtRects;
             currentPage = 0;
             OpenPage(currentList, currentPage);
