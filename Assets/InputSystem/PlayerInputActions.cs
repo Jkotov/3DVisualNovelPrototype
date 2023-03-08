@@ -53,6 +53,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pick"",
+                    ""type"": ""Button"",
+                    ""id"": ""52181c24-e06e-47de-9a0e-8396b94a589c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -121,6 +130,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""StartDialog"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a55711f5-2b04-4444-93aa-24ca2ecedf7d"",
+                    ""path"": ""<Keyboard>/G"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -132,6 +152,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_SceneLoad = m_Player.FindAction("SceneLoad", throwIfNotFound: true);
         m_Player_StartDialog = m_Player.FindAction("StartDialog", throwIfNotFound: true);
+        m_Player_Pick = m_Player.FindAction("Pick", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -194,6 +215,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_SceneLoad;
     private readonly InputAction m_Player_StartDialog;
+    private readonly InputAction m_Player_Pick;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -201,6 +223,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @SceneLoad => m_Wrapper.m_Player_SceneLoad;
         public InputAction @StartDialog => m_Wrapper.m_Player_StartDialog;
+        public InputAction @Pick => m_Wrapper.m_Player_Pick;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -219,6 +242,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @StartDialog.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStartDialog;
                 @StartDialog.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStartDialog;
                 @StartDialog.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStartDialog;
+                @Pick.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPick;
+                @Pick.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPick;
+                @Pick.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPick;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -232,6 +258,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @StartDialog.started += instance.OnStartDialog;
                 @StartDialog.performed += instance.OnStartDialog;
                 @StartDialog.canceled += instance.OnStartDialog;
+                @Pick.started += instance.OnPick;
+                @Pick.performed += instance.OnPick;
+                @Pick.canceled += instance.OnPick;
             }
         }
     }
@@ -241,5 +270,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnSceneLoad(InputAction.CallbackContext context);
         void OnStartDialog(InputAction.CallbackContext context);
+        void OnPick(InputAction.CallbackContext context);
     }
 }
