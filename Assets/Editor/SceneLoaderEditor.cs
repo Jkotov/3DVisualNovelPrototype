@@ -1,10 +1,11 @@
 using UnityEditor;
 
 [CustomEditor(typeof(SceneLoader), true)]
-public class SceneLoaderEditor : Editor
+public class SceneLoaderEditor : UnityEditor.Editor
 {
     public override void OnInspectorGUI()
     {
+        base.OnInspectorGUI();
         var sceneLoader = target as SceneLoader;
         var oldScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(sceneLoader.Scene);
 
