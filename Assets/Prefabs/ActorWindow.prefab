@@ -123,8 +123,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Actor
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cd6b63778fcd2be4d9d25280397302df, type: 2}
-  m_sharedMaterial: {fileID: 2919531174167543756, guid: cd6b63778fcd2be4d9d25280397302df,
+  m_fontAsset: {fileID: 11400000, guid: ca4bb3a017765d241af0d619833300d9, type: 2}
+  m_sharedMaterial: {fileID: -3267376887035158707, guid: ca4bb3a017765d241af0d619833300d9,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -149,8 +149,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 40
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

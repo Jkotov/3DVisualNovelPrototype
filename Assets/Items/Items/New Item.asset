@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d2c3ecab5b84df6a44f157c4d568f40, type: 3}
   m_Name: New Item
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  itemName: Item
-  description: Description
+  sprite: {fileID: 21300000, guid: 7c7bef07bf894924ebd2221e71085433, type: 3}
+  itemName: "\u042F\u0431\u043B\u043E\u043A\u043E"
+  description: "\u042F\u0431\u043B\u043E\u043A\u043E \u0441\u0430\u0434\u043E\u0432\u043E\u0435"
   maxStack: 64
