@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 namespace InventorySystem
@@ -22,6 +23,7 @@ namespace InventorySystem
             }
             foreach (var picked in pickedItems)
             {
+                DestroyableObjectsManager.Instance.MarkObjectAsDestroyed(picked);
                 pickableItems.RemoveAll(item => item == picked);
             }
         }
