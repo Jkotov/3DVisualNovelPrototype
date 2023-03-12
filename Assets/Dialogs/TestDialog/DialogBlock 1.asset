@@ -210,4 +210,6 @@ MonoBehaviour:
     isChangeQuestTask: 0
     questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
     taskStatus: 1
-  inventoryActions: []
+  inventoryActions:
+  - inventoryItem: {fileID: 0}
+    count: 0
