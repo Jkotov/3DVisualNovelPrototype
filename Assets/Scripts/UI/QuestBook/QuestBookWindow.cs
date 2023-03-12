@@ -265,11 +265,13 @@ namespace UI.QuestBook
                     page++;
                     currentHeight = 0;
                 }
-                currentHeight += rect.sizeDelta.y;
-                var anchoredPosition = pages[page % pages.Count].anchoredPosition;
+                rect.parent = pages[page % pages.Count];
+                currentHeight += rect.sizeDelta.y / 2;
+                var anchoredPosition = Vector2.zero;//pages[page % pages.Count].anchoredPosition;
                 anchoredPosition.y -= currentHeight;
                 rect.anchoredPosition = anchoredPosition;
                 rectPageIndices.Add(new RectPageIndex(rect, page));
+                currentHeight += rect.sizeDelta.y / 2;
             }
             return rectPageIndices;
         }

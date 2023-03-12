@@ -8,6 +8,7 @@ namespace QuestSystem
     [CreateAssetMenu(fileName = "New Quest", menuName = "ScriptableObjects/Quest")]
     public class Quest : ScriptableObject
     {
+        [TextArea]
         public string description;
         public int priority;
         [NonSerialized] public QuestStatus questStatus = QuestStatus.NotStarted;
