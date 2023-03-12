@@ -11,6 +11,7 @@ namespace UI.QuestBook
     {
         [SerializeField] private GameObject questNamePrefab;
         [SerializeField] private GameObject thoughtPrefab;
+        [SerializeField] private GameObject BookImage;
         [SerializeField] private List<RectTransform> pages;
         [SerializeField] private QuestPage questPage;
         [SerializeField] private OpenBookButton openBookButton;
@@ -76,6 +77,7 @@ namespace UI.QuestBook
             openActiveQuests.gameObject.SetActive(false);
             openFinishedQuests.gameObject.SetActive(false);
             openThoughts.gameObject.SetActive(false);
+            BookImage.gameObject.SetActive(false);
         }
         
         public void ShowPageChangeButtons()
@@ -111,6 +113,7 @@ namespace UI.QuestBook
             openActiveQuests.gameObject.SetActive(true);
             openFinishedQuests.gameObject.SetActive(true);
             openThoughts.gameObject.SetActive(true);
+            BookImage.gameObject.SetActive(true);
         }
 
         public void OpenActiveQuestLinks()
