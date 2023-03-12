@@ -1,4 +1,6 @@
+using System.Linq;
 using Dialog;
+using UI;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -43,6 +45,6 @@ namespace Controller
             turnSpeedApplied?.Invoke(speed);
         }
 
-        private bool CanMove => DialogManager.Instance.IsDialogStarted == false;
+        private bool CanMove => !OpenedWindowManager.Instance.Opened.Any();
     }
 }

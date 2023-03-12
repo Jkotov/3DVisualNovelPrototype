@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -19,6 +20,7 @@ namespace Dialog
         [SerializeField] private GameObject staticGameObject;
         public void ShowDialogWindow()
         {
+            OpenedWindowManager.Instance.MarkAsOpened(this);
             if (FindObjectOfType<EventSystem>() == null)
             {
                 var eventSystem = new GameObject("EventSystem", typeof(EventSystem), typeof(StandaloneInputModule));
@@ -31,6 +33,7 @@ namespace Dialog
         
         public void HideDialogWindow()
         {
+            OpenedWindowManager.Instance.RemoveMarkAsOpened(this);
             mainText.gameObject.SetActive(false);
             foreach (var answersWindow in answerWindows)
             {

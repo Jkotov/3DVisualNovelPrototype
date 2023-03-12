@@ -55,6 +55,9 @@ namespace UI
         
         public void ShowInventory(Inventory inventory)
         {
+            if (OpenedWindowManager.Instance.CanOpen(this) == false)
+                return;
+            OpenedWindowManager.Instance.MarkAsOpened(this);
             IsShowing = true;
             Debug.Log(cells.Length);
             Debug.Log(inventory.Slots.Count);
@@ -67,6 +70,7 @@ namespace UI
 
         public void HideInventory()
         {
+            OpenedWindowManager.Instance.RemoveMarkAsOpened(this);
             IsShowing = false;
             inventoryWindow.SetActive(false);
         }

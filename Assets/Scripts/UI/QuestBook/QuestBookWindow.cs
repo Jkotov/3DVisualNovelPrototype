@@ -55,6 +55,7 @@ namespace UI.QuestBook
 
         private void CloseBook()
         {
+            OpenedWindowManager.Instance.RemoveMarkAsOpened(this);
             isOpened = false;
             foreach (var button in pageChangeButtons)
             {
@@ -96,9 +97,11 @@ namespace UI.QuestBook
         
         public void OpenBook()
         {
+            if (OpenedWindowManager.Instance.CanOpen(this) == false)
+                return;
+            OpenedWindowManager.Instance.MarkAsOpened(this);
             isOpened = true;
             UpdateTextElements();
-
             activeLinkRects = CalcRects(activeQuestLinkRects.Select(a =>  a.RectTransform).ToList());
             finishedLinkRects = CalcRects(finishedQuestLinkRects.Select(a =>  a.RectTransform).ToList());
             thoughtRects = CalcRects(thoughtTextElements.Select(a =>  a.RectTransform).ToList());
@@ -292,16 +295,6 @@ namespace UI.QuestBook
             return res;
         }
         
-        private struct RectPageIndex
-        {
-            public RectTransform rectTransform;
-            public int page;
-
-            public RectPageIndex(RectTransform rect, int page)
-            {
-                rectTransform = rect;
-                this.page = page;
-            }
-        }
+        
     }
 }

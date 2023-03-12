@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using InventorySystem;
+using UI;
 using UnityEngine.Events;
 
 namespace Dialog
@@ -13,6 +14,8 @@ namespace Dialog
 
         public void StartDialog(DialogBlock firstDialog, Inventory inventory = null)
         {
+            if (OpenedWindowManager.Instance.CanOpen(DialogWindow.Instance) == false)
+                return;
             if (IsDialogStarted)
                 return;
             CurrentInventory = inventory;
