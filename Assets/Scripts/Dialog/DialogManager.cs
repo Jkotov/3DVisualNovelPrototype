@@ -26,6 +26,7 @@ namespace Dialog
         {
             IsDialogStarted = false;
             DialogWindow.Instance.HideDialogWindow();
+            activeActorChanged.Invoke(new List<Actor>());
         }
         
         public void SubscribeToAnswerWindows()
