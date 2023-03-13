@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FlowerShopInside.unity
     guid: de8216a6187387e41baff9f4f0e0f03a
+  - enabled: 1
+    path: Assets/Scenes/BoatHouse.unity
+    guid: bd085f4e2a86fbd4094575f44f141d00
+  - enabled: 1
+    path: Assets/Scenes/atelier.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
