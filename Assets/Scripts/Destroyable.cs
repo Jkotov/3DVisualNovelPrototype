@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using DefaultNamespace;
 using UnityEngine;
 
 public class Destroyable : MonoBehaviour

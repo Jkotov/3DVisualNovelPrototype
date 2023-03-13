@@ -11,6 +11,11 @@ namespace InventorySystem
     {
         [SerializeField] private List<InventorySlot> slots;
 
+        public void LoadInventory(List<InventorySlot> inventorySlots)
+        {
+            slots = inventorySlots;
+        }
+        
         public void AddItem(InventoryItem item, int count)
         {
             for (int i = 0; i < slots.Count; i++)
