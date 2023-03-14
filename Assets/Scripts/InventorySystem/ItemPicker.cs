@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace InventorySystem
 {
@@ -10,8 +11,10 @@ namespace InventorySystem
         private readonly List<PickableItem> pickableItems = new List<PickableItem>();
         private readonly List<PickableItem> pickedItems = new List<PickableItem>();
 
-        public void TryPickItem()
+        public void TryPickItem(InputAction.CallbackContext callbackContext)
         {
+            if (!callbackContext.performed)
+                return;
             foreach (var pickableItem in pickableItems)
             {
                 if (inventory.TryAddItems(pickableItem.InventoryItem, pickableItem.Count))

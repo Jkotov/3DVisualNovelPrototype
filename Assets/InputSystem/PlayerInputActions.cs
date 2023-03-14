@@ -62,6 +62,33 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QSave"",
+                    ""type"": ""Button"",
+                    ""id"": ""cef3b951-17cb-455a-b228-6c1b0d2b9190"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QLoad"",
+                    ""type"": ""Button"",
+                    ""id"": ""68fd0c6e-29cd-4e59-93a1-3e1fba636531"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QDelete"",
+                    ""type"": ""Button"",
+                    ""id"": ""3d4edf3d-0315-418f-ac61-f5e383791770"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -141,6 +168,39 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Pick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ca55befb-1158-47bc-80bb-55db820876a2"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QSave"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ccbad67f-8ff9-4259-8f07-6d2558a5de5c"",
+                    ""path"": ""<Keyboard>/semicolon"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QDelete"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""36e7828c-1d88-4107-b60a-a4066ccb34ce"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QLoad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -153,6 +213,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_SceneLoad = m_Player.FindAction("SceneLoad", throwIfNotFound: true);
         m_Player_StartDialog = m_Player.FindAction("StartDialog", throwIfNotFound: true);
         m_Player_Pick = m_Player.FindAction("Pick", throwIfNotFound: true);
+        m_Player_QSave = m_Player.FindAction("QSave", throwIfNotFound: true);
+        m_Player_QLoad = m_Player.FindAction("QLoad", throwIfNotFound: true);
+        m_Player_QDelete = m_Player.FindAction("QDelete", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -216,6 +279,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SceneLoad;
     private readonly InputAction m_Player_StartDialog;
     private readonly InputAction m_Player_Pick;
+    private readonly InputAction m_Player_QSave;
+    private readonly InputAction m_Player_QLoad;
+    private readonly InputAction m_Player_QDelete;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -224,6 +290,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @SceneLoad => m_Wrapper.m_Player_SceneLoad;
         public InputAction @StartDialog => m_Wrapper.m_Player_StartDialog;
         public InputAction @Pick => m_Wrapper.m_Player_Pick;
+        public InputAction @QSave => m_Wrapper.m_Player_QSave;
+        public InputAction @QLoad => m_Wrapper.m_Player_QLoad;
+        public InputAction @QDelete => m_Wrapper.m_Player_QDelete;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -245,6 +314,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Pick.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPick;
                 @Pick.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPick;
                 @Pick.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPick;
+                @QSave.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQSave;
+                @QSave.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQSave;
+                @QSave.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQSave;
+                @QLoad.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQLoad;
+                @QLoad.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQLoad;
+                @QLoad.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQLoad;
+                @QDelete.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQDelete;
+                @QDelete.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQDelete;
+                @QDelete.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQDelete;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -261,6 +339,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Pick.started += instance.OnPick;
                 @Pick.performed += instance.OnPick;
                 @Pick.canceled += instance.OnPick;
+                @QSave.started += instance.OnQSave;
+                @QSave.performed += instance.OnQSave;
+                @QSave.canceled += instance.OnQSave;
+                @QLoad.started += instance.OnQLoad;
+                @QLoad.performed += instance.OnQLoad;
+                @QLoad.canceled += instance.OnQLoad;
+                @QDelete.started += instance.OnQDelete;
+                @QDelete.performed += instance.OnQDelete;
+                @QDelete.canceled += instance.OnQDelete;
             }
         }
     }
@@ -271,5 +358,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnSceneLoad(InputAction.CallbackContext context);
         void OnStartDialog(InputAction.CallbackContext context);
         void OnPick(InputAction.CallbackContext context);
+        void OnQSave(InputAction.CallbackContext context);
+        void OnQLoad(InputAction.CallbackContext context);
+        void OnQDelete(InputAction.CallbackContext context);
     }
 }

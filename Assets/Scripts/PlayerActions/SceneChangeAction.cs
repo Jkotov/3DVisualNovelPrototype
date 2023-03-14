@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace PlayerActions
@@ -8,8 +9,10 @@ namespace PlayerActions
     {
         private readonly List<string> scenesForLoad = new List<string>();
     
-        public void TryLoadScene()
+        public void TryLoadScene(InputAction.CallbackContext callbackContext)
         {
+            if (!callbackContext.performed)
+                return;
             if (scenesForLoad.Count > 0)
                 SceneManager.LoadScene(scenesForLoad[0]);
         }

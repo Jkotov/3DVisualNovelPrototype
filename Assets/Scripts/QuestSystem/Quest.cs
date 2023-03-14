@@ -6,12 +6,13 @@ using UnityEngine;
 namespace QuestSystem
 {
     [CreateAssetMenu(fileName = "New Quest", menuName = "ScriptableObjects/Quest")]
+    [Serializable]
     public class Quest : ScriptableObject
     {
         [TextArea]
-        public string description;
-        public int priority;
-        [NonSerialized] public QuestStatus questStatus = QuestStatus.NotStarted;
+        [SerializeField] public string description;
+        [SerializeField] public int priority;
+        [SerializeField] public QuestStatus questStatus = QuestStatus.NotStarted;
         [SerializeField] private List<QuestTask> tasks;
         [SerializeField] private List<StatusForThought> thoughts;
         public ReadOnlyCollection<QuestTask> Tasks => tasks.AsReadOnly();
