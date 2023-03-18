@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using InventorySystem;
+using Moveables;
 using QuestSystem;
 using UnityEditor;
 using UnityEngine;
@@ -11,6 +13,8 @@ namespace SaveSystem
 {
     public static class SaveLoad
     {
+        private static bool isLoading = false;
+        
         public static void Save(string key)
         {
             PlayerPrefs.SetString(key, "");
@@ -20,7 +24,7 @@ namespace SaveSystem
                 JsonUtility.ToJson(new QuestsListWrapper(QuestManager.Instance.FinishedQuests.ToList())));
             PlayerPrefs.SetString($"{key} thoughts", 
                 JsonUtility.ToJson(new ThoughtsListWrapper(QuestManager.Instance.Thoughts.ToList())));
-
+            
             var assetNames = AssetDatabase.FindAssets("t:InventoryStorage");
             foreach (var storageName in assetNames)
             {
@@ -33,17 +37,38 @@ namespace SaveSystem
 
             var destroyed = DestroyableObjectsManager.Instance.DestroyedObjects.ToList();
             PlayerPrefs.SetString($"{key} destroyed", JsonUtility.ToJson(new StringsListWrapper(destroyed)));
+            
+            var moveable = JsonUtility.ToJson(new MoveablesManagerAdapter(new Dictionary<string, PositionRotation>(MoveableManager.Instance.Positions)));
+            Debug.Log(moveable);
+            PlayerPrefs.SetString($"{key} moveable", moveable);
+
             PlayerPrefs.SetString($"{key} scene", SceneManager.GetActiveScene().name);
             PlayerPrefs.Save();
             Debug.Log($"{key} Saved");
         }
 
-        public static bool TryLoad(string key)
+        public static IEnumerator TryLoad(string key)
         {
-            if (PlayerPrefs.HasKey(key) == false)
+            if (PlayerPrefs.HasKey(key) == false || isLoading)
             {
                 Debug.Log($"{key} Not Found");
-                return false;
+                yield break;
+            }
+
+            isLoading = true;
+            var currentScene = SceneManager.GetActiveScene();
+            var asyncOperation = SceneManager.LoadSceneAsync("LoadingScene");
+            while (!asyncOperation.isDone)
+            {
+                yield return null;
+            }
+
+            if (currentScene.isLoaded)
+            {       asyncOperation = SceneManager.UnloadSceneAsync(currentScene);
+                while (!asyncOperation.isDone)
+                { 
+                    yield return null;
+                }
             }
 
             var activeQuests = JsonUtility.FromJson<QuestsListWrapper>(PlayerPrefs.GetString($"{key} activeQuests"));
@@ -62,10 +87,11 @@ namespace SaveSystem
             }
 
             var destroyed = JsonUtility.FromJson<StringsListWrapper>(PlayerPrefs.GetString($"{key} destroyed"));
-            DestroyableObjectsManager.Instance.Load(destroyed.strings.ToHashSet());
-            SceneManager.LoadScene(PlayerPrefs.GetString($"{key} scene"));
+            DestroyableObjectsManager.Instance.Load(destroyed.strings.ToHashSet()); 
+            MoveableManager.Instance.Load(JsonUtility.FromJson<MoveablesManagerAdapter>(PlayerPrefs.GetString($"{key} moveable")).Dict);
+            SceneManager.LoadSceneAsync(PlayerPrefs.GetString($"{key} scene"));
+            isLoading = false;
             Debug.Log($"{key} Loaded");
-            return true;
         }
 
         public static void Delete(string key)
@@ -84,6 +110,7 @@ namespace SaveSystem
             }
 
             PlayerPrefs.DeleteKey($"{key} destroyed");
+            PlayerPrefs.DeleteKey($"{key} moveable");
             PlayerPrefs.DeleteKey($"{key} scene");
 
             PlayerPrefs.Save();
@@ -132,6 +159,50 @@ namespace SaveSystem
             {
                 this.thoughts = thoughts;
             }
+        }
+
+        [Serializable]
+        class MoveablesManagerAdapter
+        {
+            public Dictionary<string, PositionRotation> Dict
+            {
+                get
+                {
+                    if (dict == null)
+                    {
+                        dict = new Dictionary<string, PositionRotation>();
+                        foreach (var item in list)
+                        {
+                            dict.Add(item.id, item.pos);
+                        }
+                    }
+
+                    return dict;
+                }
+            }
+            [SerializeField] public List<PosRotId> list;
+            private Dictionary<string, PositionRotation> dict;
+
+            public MoveablesManagerAdapter(Dictionary<string, PositionRotation> dictionary)
+            {
+                dict = dictionary;
+                list = new List<PosRotId>();
+                foreach (var pos in dict)
+                {
+                    list.Add(new PosRotId()
+                    {
+                        id = pos.Key,
+                        pos = pos.Value,
+                    });
+                }
+            }
+        }
+
+        [Serializable]
+        struct PosRotId
+        {
+            [SerializeField] public string id;
+            [SerializeField] public PositionRotation pos;
         }
     }
 }

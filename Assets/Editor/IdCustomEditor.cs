@@ -2,13 +2,13 @@ using InventorySystem;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(Destroyable), true)]
-public class DestroyableCustomEditor : Editor
+[CustomEditor(typeof(Id), true)]
+public class IdCustomEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
-        var obj = target as Destroyable;
+        var obj = target as Id;
         if (GUILayout.Button("Generate ID"))
         {
             obj.GenerateGuid();

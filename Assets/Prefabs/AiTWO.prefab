@@ -2524,7 +2524,7 @@ GameObject:
   - component: {fileID: 2739019014598566978}
   - component: {fileID: 1704831406334964381}
   - component: {fileID: 6444243713165516819}
-  - component: {fileID: 5480315835360838010}
+  - component: {fileID: 3647106305164987933}
   m_Layer: 6
   m_Name: AiTWO
   m_TagString: Untagged
@@ -2698,51 +2698,15 @@ MonoBehaviour:
     m_ActionId: 52181c24-e06e-47de-9a0e-8396b94a589c
     m_ActionName: Player/Pick[/Keyboard/g]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5480315835360838010}
-        m_TargetAssemblyTypeName: SaveSystem.QuickSave, Assembly-CSharp
-        m_MethodName: Save
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: cef3b951-17cb-455a-b228-6c1b0d2b9190
     m_ActionName: Player/QSave
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5480315835360838010}
-        m_TargetAssemblyTypeName: SaveSystem.QuickSave, Assembly-CSharp
-        m_MethodName: Delete
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 3d4edf3d-0315-418f-ac61-f5e383791770
     m_ActionName: Player/QDelete[/Keyboard/semicolon]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5480315835360838010}
-        m_TargetAssemblyTypeName: SaveSystem.QuickSave, Assembly-CSharp
-        m_MethodName: Load
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 68fd0c6e-29cd-4e59-93a1-3e1fba636531
     m_ActionName: Player/QLoad[/Keyboard/l]
   m_NeverAutoSwitchControlSchemes: 0
@@ -2849,7 +2813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: -1487646212027842447}
---- !u!114 &5480315835360838010
+--- !u!114 &3647106305164987933
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2858,9 +2822,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7934752354635551181}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acf190439d674017959d52967a813df2, type: 3}
+  m_Script: {fileID: 11500000, guid: a1533b7bf44e4ac59803b1448edf7c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  guid: d095db1e-75d6-4d9e-864b-dd33cc019c8d
 --- !u!1 &8091279336633621361
 GameObject:
   m_ObjectHideFlags: 0

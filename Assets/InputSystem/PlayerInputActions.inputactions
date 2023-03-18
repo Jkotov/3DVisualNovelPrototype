@@ -40,33 +40,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "QSave",
-                    "type": "Button",
-                    "id": "cef3b951-17cb-455a-b228-6c1b0d2b9190",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "QLoad",
-                    "type": "Button",
-                    "id": "68fd0c6e-29cd-4e59-93a1-3e1fba636531",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "QDelete",
-                    "type": "Button",
-                    "id": "3d4edf3d-0315-418f-ac61-f5e383791770",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -146,10 +119,45 @@
                     "action": "Pick",
                     "isComposite": false,
                     "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Qsave",
+            "id": "db63d540-5b67-4465-93c7-f214b95df086",
+            "actions": [
+                {
+                    "name": "QSave",
+                    "type": "Button",
+                    "id": "83c487de-bc71-46a5-aacf-4522cbe8186d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
+                    "name": "QLoad",
+                    "type": "Button",
+                    "id": "97133e92-4946-4225-bf28-0cf3e6c3f29e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "QDelete",
+                    "type": "Button",
+                    "id": "606bf609-d182-43b5-8251-34442a451347",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
                     "name": "",
-                    "id": "ca55befb-1158-47bc-80bb-55db820876a2",
+                    "id": "72786842-23d0-46e5-ae44-027cc0aa7155",
                     "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
@@ -160,23 +168,23 @@
                 },
                 {
                     "name": "",
-                    "id": "ccbad67f-8ff9-4259-8f07-6d2558a5de5c",
-                    "path": "<Keyboard>/semicolon",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "QDelete",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "36e7828c-1d88-4107-b60a-a4066ccb34ce",
+                    "id": "86185334-95f3-425c-9fca-691071c1e97c",
                     "path": "<Keyboard>/l",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "QLoad",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9f0bba40-af16-4382-ae35-2297c2f0af99",
+                    "path": "<Keyboard>/semicolon",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "QDelete",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
