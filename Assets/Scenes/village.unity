@@ -2223,6 +2223,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 15fea59f-52e6-4c17-b6d9-636b8134774c
     m_ActionName: Player/StartDialog[/Keyboard/b]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 52181c24-e06e-47de-9a0e-8396b94a589c
+    m_ActionName: Player/Pick[/Keyboard/g]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cef3b951-17cb-455a-b228-6c1b0d2b9190
+    m_ActionName: Player/QSave[/Keyboard/k]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 68fd0c6e-29cd-4e59-93a1-3e1fba636531
+    m_ActionName: Player/QLoad[/Keyboard/l]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3d4edf3d-0315-418f-ac61-f5e383791770
+    m_ActionName: Player/QDelete[/Keyboard/semicolon]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

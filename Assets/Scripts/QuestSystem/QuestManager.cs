@@ -47,10 +47,11 @@ namespace QuestSystem
             thoughtAdded?.Invoke(thought);
         }
 
-        public void LoadQuests(IEnumerable<Quest> active, IEnumerable<Quest> finished)
+        public void LoadQuests(IEnumerable<Quest> active, IEnumerable<Quest> finished, IEnumerable<Thought> thoughts)
         {
             activeQuests = new List<Quest>(active);
             finishedQuests = new List<Quest>(finished);
+            this.thoughts = new List<Thought>(thoughts);
         }
     
         static QuestManager()
