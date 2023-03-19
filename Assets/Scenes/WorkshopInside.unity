@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18263972, g: 0.22835247, b: 0.3071475, a: 1}
+  m_IndirectSpecularColor: {r: 0.18263972, g: 0.22835246, b: 0.3071475, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -487,34 +487,13 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -910180310522622251, guid: 52bd5854758297544bbec52b2d7c7351, type: 3}
---- !u!1 &143442122 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7934752354635551181, guid: caba911f3f7e93440a156242610a6cff,
-    type: 3}
-  m_PrefabInstance: {fileID: 795614440}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &143442123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 143442122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5121b0fa1c53459b99fba65cc86a4a1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemsCount: 10
-  item: {fileID: 11400000, guid: 3d73eec9b83596b838fcd0b80e064bac, type: 2}
-  inventory: {fileID: 143442124}
 --- !u!114 &143442124 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -1487646212027842447, guid: caba911f3f7e93440a156242610a6cff,
     type: 3}
   m_PrefabInstance: {fileID: 795614440}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 143442122}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85502e4f78b34f6f8129c05abe3d7eb5, type: 3}
@@ -2582,6 +2561,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Assets/Scenes/VillageTwo.unity
+  positionRotation:
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!65 &869919740
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3226,6 +3208,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Assets/Scenes/village.unity
+  positionRotation:
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!65 &1173571148
 BoxCollider:
   m_ObjectHideFlags: 0

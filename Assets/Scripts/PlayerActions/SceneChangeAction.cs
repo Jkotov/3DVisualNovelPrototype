@@ -1,34 +1,51 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using Moveables;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace PlayerActions
 {
+    [RequireComponent(typeof(Moveable))]
     public class SceneChangeAction : MonoBehaviour
     {
-        private readonly List<string> scenesForLoad = new List<string>();
-    
+        private readonly List<SceneLoader> scenesForLoad = new List<SceneLoader>();
+        private Moveable moveable;
+        
+        private void Awake()
+        {
+            moveable = GetComponent<Moveable>();
+        }
+
         public void TryLoadScene(InputAction.CallbackContext callbackContext)
         {
             if (!callbackContext.performed)
                 return;
             if (scenesForLoad.Count > 0)
-                SceneManager.LoadScene(scenesForLoad[0]);
+            {
+                if (TryGetComponent(out CharacterController controller))
+                    controller.enabled = false;
+                transform.position = scenesForLoad[0].PositionRotation.pos;
+                transform.rotation = scenesForLoad[0].PositionRotation.rot;
+                SceneManager.LoadScene(scenesForLoad[0].Scene);
+            }
         }
-    
+
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out SceneLoader sceneLoader))
             {
-                scenesForLoad.Add(sceneLoader.Scene);
+                scenesForLoad.Add(sceneLoader);
             }
         }
         private void OnTriggerExit(Collider other)
         {
             if (other.TryGetComponent(out SceneLoader sceneLoader))
             {
-                scenesForLoad.RemoveAll(scene => scene == sceneLoader.Scene);
+                scenesForLoad.RemoveAll(scene => scene == sceneLoader);
             }
         }
     }

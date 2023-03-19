@@ -692,6 +692,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: 
+  positionRotation:
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!65 &83169842
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6203,6 +6206,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: 
+  positionRotation:
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1138075829 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5042048040192068020, guid: 46a6ab97f9c133b4da0a3f0651c9dc57,
@@ -7235,7 +7241,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e0026a5e9a81c8745bca530ffd59981a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.98
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e0026a5e9a81c8745bca530ffd59981a,
         type: 3}
@@ -9212,6 +9218,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Assets/Scenes/WorkshopInside.unity
+  positionRotation:
+    pos: {x: 0.5, y: 0.3, z: 1.9}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1556977848 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4767400413853537203, guid: e0026a5e9a81c8745bca530ffd59981a,
