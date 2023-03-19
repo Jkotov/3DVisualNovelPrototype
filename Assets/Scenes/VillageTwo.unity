@@ -10728,6 +10728,16 @@ PrefabInstance:
       propertyPath: forwardSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5055752322603286220, guid: caba911f3f7e93440a156242610a6cff,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055752322603286220, guid: caba911f3f7e93440a156242610a6cff,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6613763792614553269, guid: caba911f3f7e93440a156242610a6cff,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -10818,6 +10828,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8433126005626045080, guid: caba911f3f7e93440a156242610a6cff,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8c61b5068ab84b44e8517b0b41286ae6,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caba911f3f7e93440a156242610a6cff, type: 3}
 --- !u!1001 &696941946
