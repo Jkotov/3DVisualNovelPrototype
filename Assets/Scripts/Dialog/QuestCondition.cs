@@ -8,6 +8,7 @@ namespace Dialog
     public class QuestCondition : DialogBlockCondition
     {
         [SerializeField] private Quest quest;
-        public override bool Completed => QuestManager.Instance.ActiveQuests.Contains(quest);
+        [SerializeField] private QuestStatus status;
+        public override bool Completed => quest.questStatus == status;
     }
 }
