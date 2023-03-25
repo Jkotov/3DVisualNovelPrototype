@@ -47,7 +47,7 @@ namespace Dialog
         public void ShowDialogBlock(DialogBlock block)
         {
             actorsWindowsGroup.UpdateActorWindows(block.actors);
-            ShowMainText(block.blockText);
+            ShowMainText(block.BlockText);
             ShowAnswerWindows(block.Answers);
         }
 
