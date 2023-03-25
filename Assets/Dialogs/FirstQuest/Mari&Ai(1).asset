@@ -25,7 +25,7 @@ MonoBehaviour:
     itemConditions: []
   statusChangers:
   - quest: {fileID: 11400000, guid: 9bd43d1f439b5fac68a02527f991880b, type: 2}
-    isChangeQuest: 1
+    isChangeQuest: 0
     questStatus: 1
     isChangeQuestTask: 0
     questTask: {fileID: 11400000, guid: 7d18e5f3fa15cac93a31e605f6a38501, type: 2}
