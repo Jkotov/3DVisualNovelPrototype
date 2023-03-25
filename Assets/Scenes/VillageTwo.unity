@@ -321,6 +321,26 @@ PrefabInstance:
       propertyPath: scene
       value: Assets/Scenes/FlowerShopInside.unity
       objectReference: {fileID: 0}
+    - target: {fileID: 6066751695232029465, guid: 92dd29adc9ca3a143aca1d24c002f3b9,
+        type: 3}
+      propertyPath: positionRotation.pos.x
+      value: -6.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066751695232029465, guid: 92dd29adc9ca3a143aca1d24c002f3b9,
+        type: 3}
+      propertyPath: positionRotation.pos.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066751695232029465, guid: 92dd29adc9ca3a143aca1d24c002f3b9,
+        type: 3}
+      propertyPath: positionRotation.rot.w
+      value: 0.7624425
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066751695232029465, guid: 92dd29adc9ca3a143aca1d24c002f3b9,
+        type: 3}
+      propertyPath: positionRotation.rot.y
+      value: 0.647056
+      objectReference: {fileID: 0}
     - target: {fileID: 6066751695232029466, guid: 92dd29adc9ca3a143aca1d24c002f3b9,
         type: 3}
       propertyPath: m_Size.z
@@ -10771,22 +10791,22 @@ PrefabInstance:
     - target: {fileID: 7302084960730434423, guid: caba911f3f7e93440a156242610a6cff,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -132.47
+      value: -130.16
       objectReference: {fileID: 0}
     - target: {fileID: 7302084960730434423, guid: caba911f3f7e93440a156242610a6cff,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.426
+      value: 10.389
       objectReference: {fileID: 0}
     - target: {fileID: 7302084960730434423, guid: caba911f3f7e93440a156242610a6cff,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.37
+      value: -2.27
       objectReference: {fileID: 0}
     - target: {fileID: 7302084960730434423, guid: caba911f3f7e93440a156242610a6cff,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.34406918
+      value: -0.6241521
       objectReference: {fileID: 0}
     - target: {fileID: 7302084960730434423, guid: caba911f3f7e93440a156242610a6cff,
         type: 3}
@@ -10796,7 +10816,7 @@ PrefabInstance:
     - target: {fileID: 7302084960730434423, guid: caba911f3f7e93440a156242610a6cff,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9389443
+      value: -0.78130287
       objectReference: {fileID: 0}
     - target: {fileID: 7302084960730434423, guid: caba911f3f7e93440a156242610a6cff,
         type: 3}
@@ -10811,7 +10831,7 @@ PrefabInstance:
     - target: {fileID: 7302084960730434423, guid: caba911f3f7e93440a156242610a6cff,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -220.25
+      value: -257.24
       objectReference: {fileID: 0}
     - target: {fileID: 7302084960730434423, guid: caba911f3f7e93440a156242610a6cff,
         type: 3}
@@ -14988,6 +15008,18 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 52181c24-e06e-47de-9a0e-8396b94a589c
     m_ActionName: Player/Pick[/Keyboard/g]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 83c487de-bc71-46a5-aacf-4522cbe8186d
+    m_ActionName: Qsave/QSave[/Keyboard/k]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 97133e92-4946-4225-bf28-0cf3e6c3f29e
+    m_ActionName: Qsave/QLoad[/Keyboard/l]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 606bf609-d182-43b5-8251-34442a451347
+    m_ActionName: Qsave/QDelete[/Keyboard/semicolon]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -22226,6 +22258,75 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8302102485596996044, guid: e0026a5e9a81c8745bca530ffd59981a, type: 3}
+--- !u!1001 &1562643590
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8455321467519117529, guid: 19909863a33c5b34baf7017e9d897bf5,
+        type: 3}
+      propertyPath: m_Name
+      value: QSave
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455321467519117534, guid: 19909863a33c5b34baf7017e9d897bf5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455321467519117534, guid: 19909863a33c5b34baf7017e9d897bf5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455321467519117534, guid: 19909863a33c5b34baf7017e9d897bf5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455321467519117534, guid: 19909863a33c5b34baf7017e9d897bf5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455321467519117534, guid: 19909863a33c5b34baf7017e9d897bf5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455321467519117534, guid: 19909863a33c5b34baf7017e9d897bf5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455321467519117534, guid: 19909863a33c5b34baf7017e9d897bf5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455321467519117534, guid: 19909863a33c5b34baf7017e9d897bf5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455321467519117534, guid: 19909863a33c5b34baf7017e9d897bf5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455321467519117534, guid: 19909863a33c5b34baf7017e9d897bf5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455321467519117534, guid: 19909863a33c5b34baf7017e9d897bf5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 19909863a33c5b34baf7017e9d897bf5, type: 3}
 --- !u!4 &1563610906 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3206962865268176015, guid: c7ebeced12cc9e44b8bb13147e5ca43b,
@@ -26602,6 +26703,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Assets/Scenes/BoatHouse.unity
+  positionRotation:
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!65 &1838096934
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28882,6 +28986,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Assets/Scenes/WorkshopInside.unity
+  positionRotation:
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1973698008
 MonoBehaviour:
   m_ObjectHideFlags: 0

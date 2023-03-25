@@ -3,7 +3,57 @@ guid: 3f0c3fd9398fd41418db67ca905b8691
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: d7be1c0bec92d1347bfa59a5c43f5f81, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: bfa8d5a664389284e95c6b3ac6ca4122, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: f88941627d2a45749b62213fb2295f8f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0432\u0432\u0435\u0440\u0445"
+    second: {fileID: 2100000, guid: fc0338c8d7726514985103fe1cc7f757, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0432\u0432\u0435\u0440\u0445 \u0431\u0443\u0439\u043A\u043E\u0432"
+    second: {fileID: 2100000, guid: 38e64350bde6eda4f8faf37dadc6b2b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0434\u043E\u043C"
+    second: {fileID: 2100000, guid: 2deab63e7fccff840982a338db485992, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u043A\u043E\u0440\u043F\u0443\u0441"
+    second: {fileID: 2100000, guid: 91adfa0b559059f47b88bdcb6733b377, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u043E\u043A\u043D\u0430"
+    second: {fileID: 2100000, guid: 7d593c90521e9ec488152373303fd27b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u043E\u043A\u043D\u0430.001"
+    second: {fileID: 2100000, guid: cfb8411ad1eb51f46ab69bd699a6bd2d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u043F\u043E\u043B"
+    second: {fileID: 2100000, guid: 7ac9cf1ab9cd5a14cb899eaf8027ce1e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

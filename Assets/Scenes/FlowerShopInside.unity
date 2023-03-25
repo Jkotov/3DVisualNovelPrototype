@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18289132, g: 0.2261248, b: 0.29259497, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -656,6 +656,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Assets/Scenes/VillageTwo.unity
+  positionRotation:
+    pos: {x: -151.95, y: 10.178, z: 24.26}
+    rot: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &150160604 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7242838476238373972, guid: 88d1cb1771986b248b3b74684fb11508,
