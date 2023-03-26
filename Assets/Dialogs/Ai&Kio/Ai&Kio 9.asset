@@ -31,6 +31,6 @@ MonoBehaviour:
     itemConditions: []
   statusChangers: []
   inventoryActions:
-  - inventoryItem: {fileID: 0}
-    count: 0
+  - inventoryItem: {fileID: 11400000, guid: 4870b9cc0e9ee984ebea17f404cb20c3, type: 2}
+    count: 5
   overridedText: []

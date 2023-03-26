@@ -16,7 +16,7 @@ MonoBehaviour:
   actors:
   - {fileID: 11400000, guid: f83e849f60f38a06babf00081e6a6d76, type: 2}
   answers:
-  - text: "\u041A\u0442\u043E \u0442\u044B?"
+  - text: "\u041F\u043E\u0445\u043E\u0436\u0435, \u0447\u0442\u043E \u0410\u0438\u2026"
     nextDialogBlock: {fileID: 11400000, guid: af62c112516350944991eb4e0c935ca7, type: 2}
     questConditions:
     - quest: {fileID: 11400000, guid: 9bd43d1f439b5fac68a02527f991880b, type: 2}

@@ -10877,11 +10877,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 650539694871952402, guid: caba911f3f7e93440a156242610a6cff,
-        type: 3}
-      propertyPath: forwardSpeed
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 5055752322603286220, guid: caba911f3f7e93440a156242610a6cff,
         type: 3}
       propertyPath: m_SizeDelta.x
