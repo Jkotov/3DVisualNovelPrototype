@@ -23,6 +23,12 @@ MonoBehaviour:
     nextDialogBlock: {fileID: 0}
     questConditions: []
     itemConditions: []
-  statusChangers: []
+  statusChangers:
+  - quest: {fileID: 11400000, guid: aa4a1be6148c5bf48914c66734203a5a, type: 2}
+    isChangeQuest: 1
+    questStatus: 2
+    isChangeQuestTask: 0
+    questTask: {fileID: 0}
+    taskStatus: 0
   inventoryActions: []
   overridedText: []
