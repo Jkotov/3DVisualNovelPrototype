@@ -24,7 +24,5 @@ MonoBehaviour:
     questConditions: []
     itemConditions: []
   statusChangers: []
-  inventoryActions:
-  - inventoryItem: {fileID: 0}
-    count: 0
+  inventoryActions: []
   overridedText: []
