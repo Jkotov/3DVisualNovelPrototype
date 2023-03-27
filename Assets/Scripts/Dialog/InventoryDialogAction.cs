@@ -12,10 +12,14 @@ namespace Dialog
 
         public void ChangeInventoryItemsCount()
         {
-            if (count > 0)
+            if (count > 0){
                 DialogManager.Instance.CurrentInventory.TryAddItems(inventoryItem, count);
-            else
+                Debug.Log(inventoryItem + " " + count);
+                }
+            else {
                 DialogManager.Instance.CurrentInventory.TryRemove(inventoryItem, count);
+                Debug.Log(inventoryItem + " " + count);
+                }
         }
     }
 }

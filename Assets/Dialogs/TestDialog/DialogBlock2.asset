@@ -17,14 +17,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 157575e5448915f48ba8ce516d2785e4, type: 2}
   answers:
   - text: "\u0434\u0430\u043B\u0435\u0435"
-    nextDialogBlock: {fileID: 11400000, guid: 548a7b0cf2ab1ac4aa27826908212971, type: 2}
+    nextDialogBlock: {fileID: 0}
     questConditions: []
     itemConditions: []
-  statusChangers:
-  - quest: {fileID: 0}
-    isChangeQuest: 0
-    questStatus: 0
-    isChangeQuestTask: 0
-    questTask: {fileID: 0}
-    taskStatus: 0
-  inventoryActions: []
+  statusChangers: []
+  inventoryActions:
+  - inventoryItem: {fileID: 11400000, guid: 5bf9ea8c49db3036aa8ea71a93ed865f, type: 2}
+    count: -5
+  overridedText: []
