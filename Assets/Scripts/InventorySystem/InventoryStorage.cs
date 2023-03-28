@@ -66,6 +66,7 @@ namespace InventorySystem
                 if (slot.count == 0)
                     slot.item = null;
                 slots[slotPos] = slot;
+                Debug.Log(slot.count);
             }
         }
 
