@@ -63,7 +63,7 @@ namespace UI
             Debug.Log(inventory.Slots.Count);
             inventoryWindow.SetActive(true);
             for (int i = 0; i < inventory.MaxSlots; i++)
-            {;
+            {
                 cells[i].Slot = inventory.Slots[i];
             }
         }
