@@ -17,8 +17,8 @@ namespace Dialog
                 Debug.Log(inventoryItem + " " + count);
                 }
             else if(count < 0){
-                DialogManager.Instance.CurrentInventory.TryRemove(inventoryItem, count);
-                Debug.Log(inventoryItem + " " + count);
+                DialogManager.Instance.CurrentInventory.TryRemove(inventoryItem, -count);
+                Debug.Log(inventoryItem + " " + -count);
                 }
         }
     }

@@ -11,6 +11,7 @@ namespace Dialog
         public static DialogManager Instance { get; } = new DialogManager();
         public readonly UnityEvent<List<Actor>> activeActorChanged;
         public Inventory CurrentInventory { get; private set; }
+        private DialogBlock currentDialogBlock;
 
         public void StartDialog(DialogBlock firstDialog, Inventory inventory = null)
         {
@@ -30,6 +31,7 @@ namespace Dialog
             IsDialogStarted = false;
             DialogWindow.Instance.HideDialogWindow();
             activeActorChanged.Invoke(new List<Actor>());
+            currentDialogBlock = null;
         }
         
         public void SubscribeToAnswerWindows()
@@ -42,6 +44,9 @@ namespace Dialog
 
         private void ShowDialogBlock(DialogBlock dialogBlock)
         {
+            if (dialogBlock == currentDialogBlock)
+                return;
+            currentDialogBlock = dialogBlock;
             activeActorChanged?.Invoke(dialogBlock.actors);
             DialogWindow.Instance.ShowDialogBlock(dialogBlock);
             dialogBlock.DoActions();
