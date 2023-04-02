@@ -35,6 +35,26 @@ namespace SaveSystem
                 PlayerPrefs.SetString($"{key} {inventoryStorage.name}", json);
             }
 
+
+            assetNames = AssetDatabase.FindAssets("t:Quest");
+            foreach (var assetName in assetNames)
+            {
+                var assetPath = AssetDatabase.GUIDToAssetPath(assetName);
+                var asset = AssetDatabase.LoadAssetAtPath<Quest>(assetPath);
+                var json = JsonUtility.ToJson(asset.questStatus);
+                PlayerPrefs.SetString($"{key} {asset.name}", json);
+            }
+
+
+            assetNames = AssetDatabase.FindAssets("t:QuestTask");
+            foreach (var assetName in assetNames)
+            {
+                var assetPath = AssetDatabase.GUIDToAssetPath(assetName);
+                var asset = AssetDatabase.LoadAssetAtPath<QuestTask>(assetPath);
+                var json = JsonUtility.ToJson(asset.status);
+                PlayerPrefs.SetString($"{key} {asset.name}", json);
+            }
+
             var destroyed = DestroyableObjectsManager.Instance.DestroyedObjects.ToList();
             PlayerPrefs.SetString($"{key} destroyed", JsonUtility.ToJson(new StringsListWrapper(destroyed)));
             
@@ -86,6 +106,28 @@ namespace SaveSystem
                 inventoryStorage.LoadInventory(slots.slots);
             }
 
+
+            assetNames = AssetDatabase.FindAssets("t:Quest");
+            foreach (var assetName in assetNames)
+            {
+                var assetPath = AssetDatabase.GUIDToAssetPath(assetName);
+                var asset = AssetDatabase.LoadAssetAtPath<Quest>(assetPath);
+                var status = JsonUtility.FromJson<QuestStatus>(
+                    PlayerPrefs.GetString($"{key} {asset.name}"));
+                asset.questStatus = status;
+            }
+
+
+            assetNames = AssetDatabase.FindAssets("t:QuestTask");
+            foreach (var assetName in assetNames)
+            {
+                var assetPath = AssetDatabase.GUIDToAssetPath(assetName);
+                var asset = AssetDatabase.LoadAssetAtPath<QuestTask>(assetPath);
+                var status = JsonUtility.FromJson<QuestStatus>(
+                    PlayerPrefs.GetString($"{key} {asset.name}"));
+                asset.status = status;
+            }
+
             var destroyed = JsonUtility.FromJson<StringsListWrapper>(PlayerPrefs.GetString($"{key} destroyed"));
             DestroyableObjectsManager.Instance.Load(destroyed.strings.ToHashSet()); 
             MoveableManager.Instance.Load(JsonUtility.FromJson<MoveablesManagerAdapter>(PlayerPrefs.GetString($"{key} moveable")).Dict);
@@ -107,6 +149,23 @@ namespace SaveSystem
                 var storagePath = AssetDatabase.GUIDToAssetPath(storageName);
                 var inventoryStorage = AssetDatabase.LoadAssetAtPath<InventoryStorage>(storagePath);
                 PlayerPrefs.DeleteKey($"{key} {inventoryStorage.name}");
+            }
+
+            assetNames = AssetDatabase.FindAssets("t:Quest");
+            foreach (var assetName in assetNames)
+            {
+                var assetPath = AssetDatabase.GUIDToAssetPath(assetName);
+                var asset = AssetDatabase.LoadAssetAtPath<Quest>(assetPath);
+                PlayerPrefs.DeleteKey($"{key} {asset.name}");
+            }
+
+
+            assetNames = AssetDatabase.FindAssets("t:QuestTask");
+            foreach (var assetName in assetNames)
+            {
+                var assetPath = AssetDatabase.GUIDToAssetPath(assetName);
+                var asset = AssetDatabase.LoadAssetAtPath<QuestTask>(assetPath);
+                PlayerPrefs.DeleteKey($"{key} {asset.name}");
             }
 
             PlayerPrefs.DeleteKey($"{key} destroyed");
