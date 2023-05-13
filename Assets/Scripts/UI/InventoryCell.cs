@@ -1,3 +1,4 @@
+using System;
 using InventorySystem;
 using TMPro;
 using UnityEngine;
@@ -17,14 +18,19 @@ namespace UI
             set
             {
                 slot = value;
-                if (slot.item != null)
-                    image.sprite = slot.item.sprite;
+                image.sprite = slot.item != null ? slot.item.sprite : clearSprite;
                 countTextMesh.text = slot.count.ToString();
             }
         }
         [SerializeField] private TextMeshProUGUI countTextMesh;
         [SerializeField] private Image image;
         private InventorySlot slot;
+        private Sprite clearSprite;
+
+        private void Awake()
+        {
+            clearSprite = image.sprite;
+        }
 
         public void OnPointerEnter(PointerEventData eventData)
         {

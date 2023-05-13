@@ -29,7 +29,7 @@ namespace UI
             else
             {
                 Instance = this;
-                DontDestroyOnLoad(this);
+                DontDestroyOnLoad(transform.root);
             }
             cells = inventoryWindow.GetComponentsInChildren<InventoryCell>();
             foreach (var cell in cells)
