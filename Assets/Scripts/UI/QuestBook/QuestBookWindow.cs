@@ -28,9 +28,17 @@ namespace UI.QuestBook
         private List<RectPageIndex> currentList;
         private int currentPage;
         private bool isOpened;
-
+        private static QuestBookWindow instance;
+        
         private void Awake()
         {
+            if (instance != null && instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            instance = this;
+            DontDestroyOnLoad(transform);
             openBookButton.pressed.AddListener(BookButtonListener);
             openActiveQuests.pressed.AddListener(OpenActiveQuestLinks);
             openFinishedQuests.pressed.AddListener(OpenFinishedQuestLinks);
@@ -39,7 +47,6 @@ namespace UI.QuestBook
             {
                 pageChangeButton.pressed.AddListener(TryChangePage);
             }
-            DontDestroyOnLoad(gameObject);
         }
 
         private void BookButtonListener()

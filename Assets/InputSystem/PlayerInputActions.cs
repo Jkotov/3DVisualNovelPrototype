@@ -62,6 +62,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ShowMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""93be52d0-9166-4543-8940-5776e2c6ef06"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -139,6 +148,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ee2ad7aa-7d66-4932-9a0e-4680c4bdedaa"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShowMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -221,6 +241,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_SceneLoad = m_Player.FindAction("SceneLoad", throwIfNotFound: true);
         m_Player_StartDialog = m_Player.FindAction("StartDialog", throwIfNotFound: true);
         m_Player_Pick = m_Player.FindAction("Pick", throwIfNotFound: true);
+        m_Player_ShowMenu = m_Player.FindAction("ShowMenu", throwIfNotFound: true);
         // Qsave
         m_Qsave = asset.FindActionMap("Qsave", throwIfNotFound: true);
         m_Qsave_QSave = m_Qsave.FindAction("QSave", throwIfNotFound: true);
@@ -289,6 +310,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SceneLoad;
     private readonly InputAction m_Player_StartDialog;
     private readonly InputAction m_Player_Pick;
+    private readonly InputAction m_Player_ShowMenu;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -297,6 +319,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @SceneLoad => m_Wrapper.m_Player_SceneLoad;
         public InputAction @StartDialog => m_Wrapper.m_Player_StartDialog;
         public InputAction @Pick => m_Wrapper.m_Player_Pick;
+        public InputAction @ShowMenu => m_Wrapper.m_Player_ShowMenu;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -318,6 +341,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Pick.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPick;
                 @Pick.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPick;
                 @Pick.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPick;
+                @ShowMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShowMenu;
+                @ShowMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShowMenu;
+                @ShowMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShowMenu;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -334,6 +360,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Pick.started += instance.OnPick;
                 @Pick.performed += instance.OnPick;
                 @Pick.canceled += instance.OnPick;
+                @ShowMenu.started += instance.OnShowMenu;
+                @ShowMenu.performed += instance.OnShowMenu;
+                @ShowMenu.canceled += instance.OnShowMenu;
             }
         }
     }
@@ -393,6 +422,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnSceneLoad(InputAction.CallbackContext context);
         void OnStartDialog(InputAction.CallbackContext context);
         void OnPick(InputAction.CallbackContext context);
+        void OnShowMenu(InputAction.CallbackContext context);
     }
     public interface IQsaveActions
     {

@@ -6,11 +6,21 @@ namespace SaveSystem
     public class QuickSave : MonoBehaviour
     {
         public const string Key = "QuickSave";
-
+        private static QuickSave instance;
+        
         private void Awake()
         {
-            DontDestroyOnLoad(this);
+            if (instance != null && instance != this)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                instance = this;
+                DontDestroyOnLoad(transform);
+            }
         }
+        
         public void Save(InputAction.CallbackContext callbackContext)
         {
             if (MainMenuController.Instance.sceneLoaded == false)

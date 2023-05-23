@@ -5,7 +5,7 @@ namespace Moveables
 {
     public class Moveable : Id
     {
-        private void Start()
+        private void Awake()
         {
             if (TryGetComponent(out CharacterController controller))
                 controller.enabled = false;

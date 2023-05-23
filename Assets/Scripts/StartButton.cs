@@ -7,7 +7,7 @@ public class StartButton : MonoBehaviour
 {
     private const string SaveKey = "NewGame";
 
-    private void Awake()
+    private void Start()
     {
         SaveLoad.Save(SaveKey);
     }
