@@ -132,6 +132,7 @@ namespace SaveSystem
             DestroyableObjectsManager.Instance.Load(destroyed.strings.ToHashSet()); 
             MoveableManager.Instance.Load(JsonUtility.FromJson<MoveablesManagerAdapter>(PlayerPrefs.GetString($"{key} moveable")).Dict);
             SceneManager.LoadSceneAsync(PlayerPrefs.GetString($"{key} scene"));
+            MainMenuController.Instance.sceneLoaded = true;
             isLoading = false;
             Debug.Log($"{key} Loaded");
         }
@@ -178,7 +179,7 @@ namespace SaveSystem
 
 
         [Serializable]
-        class InventorySlotsWrapper
+        internal class InventorySlotsWrapper
         {
             [SerializeField] public List<InventorySlot> slots;
 
@@ -188,7 +189,7 @@ namespace SaveSystem
             }
         }
         [Serializable]
-        class StringsListWrapper
+        internal class StringsListWrapper
         {
             [SerializeField] public List<string> strings;
 
@@ -199,7 +200,7 @@ namespace SaveSystem
         }
         
         [Serializable]
-        class QuestsListWrapper
+        internal class QuestsListWrapper
         {
             [SerializeField] public List<Quest> quests;
 
@@ -210,7 +211,7 @@ namespace SaveSystem
         }
         
         [Serializable]
-        class ThoughtsListWrapper
+        internal class ThoughtsListWrapper
         {
             [SerializeField] public List<Thought> thoughts;
 

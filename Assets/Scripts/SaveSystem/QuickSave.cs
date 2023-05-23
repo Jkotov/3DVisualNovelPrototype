@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,15 +5,16 @@ namespace SaveSystem
 {
     public class QuickSave : MonoBehaviour
     {
-        private const string Key = "QuickSave";
+        public const string Key = "QuickSave";
 
         private void Awake()
         {
             DontDestroyOnLoad(this);
         }
-
         public void Save(InputAction.CallbackContext callbackContext)
         {
+            if (MainMenuController.Instance.sceneLoaded == false)
+                return;
             if (callbackContext.performed)
             {
                 SaveLoad.Save(Key);
