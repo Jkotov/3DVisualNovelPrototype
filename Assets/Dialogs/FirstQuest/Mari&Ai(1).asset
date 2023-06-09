@@ -40,6 +40,14 @@ MonoBehaviour:
     itemConditions:
     - item: {fileID: 0}
       count: 0
+  - text: "\u041D\u0435 \u0432\u0430\u0436\u043D\u043E"
+    nextDialogBlock: {fileID: 0}
+    questConditions:
+    - quest: {fileID: 11400000, guid: d3e352e1c5d670347821cbe619da4018, type: 2}
+      status: 2
+    itemConditions:
+    - item: {fileID: 0}
+      count: 0
   statusChangers:
   - quest: {fileID: 11400000, guid: 9bd43d1f439b5fac68a02527f991880b, type: 2}
     isChangeQuest: 1

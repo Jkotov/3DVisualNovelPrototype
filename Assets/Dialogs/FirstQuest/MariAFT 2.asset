@@ -20,7 +20,19 @@ MonoBehaviour:
     nextDialogBlock: {fileID: 0}
     questConditions: []
     itemConditions: []
-  statusChangers: []
+  statusChangers:
+  - quest: {fileID: 11400000, guid: d3e352e1c5d670347821cbe619da4018, type: 2}
+    isChangeQuest: 1
+    questStatus: 2
+    isChangeQuestTask: 0
+    questTask: {fileID: 0}
+    taskStatus: 0
+  - quest: {fileID: 11400000, guid: 9bd43d1f439b5fac68a02527f991880b, type: 2}
+    isChangeQuest: 1
+    questStatus: 2
+    isChangeQuestTask: 0
+    questTask: {fileID: 0}
+    taskStatus: 0
   inventoryActions:
   - inventoryItem: {fileID: 11400000, guid: 3d73eec9b83596b838fcd0b80e064bac, type: 2}
     count: 1

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d2c3ecab5b84df6a44f157c4d568f40, type: 3}
-  m_Name: New Item
+  m_Name: fsf
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 7c7bef07bf894924ebd2221e71085433, type: 3}
-  itemName: "\u042F\u0431\u043B\u043E\u043A\u043E"
-  description: "\u042F\u0431\u043B\u043E\u043A\u043E \u0441\u0430\u0434\u043E\u0432\u043E\u0435"
+  sprite: {fileID: 21300000, guid: ee4eebb0cc2858b4589b1e4040d93856, type: 3}
+  itemName: "\u0411\u0430\u043D\u043E\u0447\u043A\u0430 \u0413\u043E\u0440\u0447\u0438\u0446\u044B"
+  description: Description
   maxStack: 64

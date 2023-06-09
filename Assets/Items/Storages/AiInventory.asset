@@ -13,20 +13,20 @@ MonoBehaviour:
   m_Name: AiInventory
   m_EditorClassIdentifier: 
   slots:
+  - item: {fileID: 11400000, guid: 486240a439a84c34683c3b0e4a67312e, type: 2}
+    count: 6
   - item: {fileID: 11400000, guid: 3d73eec9b83596b838fcd0b80e064bac, type: 2}
+    count: 5
+  - item: {fileID: 11400000, guid: dafd73717c1400a40a37698d556cd1f7, type: 2}
     count: 1
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
+  - item: {fileID: 11400000, guid: 4e552b00e416bcb419f0b579bdc6c301, type: 2}
+    count: 1
+  - item: {fileID: 11400000, guid: b4d2581e12e52814d9cbd78e5e7a0766, type: 2}
+    count: 2
+  - item: {fileID: 11400000, guid: 1e3a0d15e5a4c6b4ba7a83ead6a5d443, type: 2}
+    count: 1
+  - item: {fileID: 11400000, guid: 71708bed9d1b6e64783f72f5a8f6d9c1, type: 2}
+    count: 10
   - item: {fileID: 0}
     count: 0
   - item: {fileID: 0}
