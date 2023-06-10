@@ -43,7 +43,7 @@ namespace SaveSystem
         {
             if (callbackContext.performed)
             {
-                SaveLoad.Delete(Key);
+                StartCoroutine(SaveLoad.Delete(Key));
             }
         }
     }

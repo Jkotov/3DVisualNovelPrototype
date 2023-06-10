@@ -87,6 +87,7 @@ MonoBehaviour:
     m_LabelNames:
     - default
     - Quest
+    - InventoryStorage
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 3e798eae1635cadf4b2a08840e834290, type: 2}

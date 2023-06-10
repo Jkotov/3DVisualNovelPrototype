@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
   m_Name: InvetoryStorages
   m_EditorClassIdentifier: 
-  m_GroupName: New Group
+  m_GroupName: InvetoryStorages
   m_Data:
     m_SerializedData: []
   m_GUID: d28fd6665494cc31eb324240699b6c66
@@ -20,7 +20,8 @@ MonoBehaviour:
   - m_GUID: 558ed428ed465073bb97800198efd2fd
     m_Address: Assets/Items/Storages
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - InventoryStorage
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8ab9a07ed49a44cd6a4e5883c21ea926, type: 2}
   m_SchemaSet:

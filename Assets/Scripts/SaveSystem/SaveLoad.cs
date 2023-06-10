@@ -27,6 +27,9 @@ namespace SaveSystem
                 JsonUtility.ToJson(new ThoughtsListWrapper(QuestManager.Instance.Thoughts.ToList())));
             
             var asyncOperationInventory = Addressables.LoadAssetsAsync<InventoryStorage>("InventoryStorage", null);
+            var asyncOperationQuest = Addressables.LoadAssetsAsync<Quest>("Quest", null);
+            var asyncOperationQuestTask = Addressables.LoadAssetsAsync<QuestTask>("Quest", null);
+            
             while (!asyncOperationInventory.IsDone)
             {
                 yield return null;
@@ -38,7 +41,6 @@ namespace SaveSystem
                 PlayerPrefs.SetString($"{key} {storage.name}", json);
             }
             
-            var asyncOperationQuest = Addressables.LoadAssetsAsync<Quest>("Quest", null);
             
             while (!asyncOperationQuest.IsDone)
             {
@@ -50,7 +52,6 @@ namespace SaveSystem
                 PlayerPrefs.SetString($"{key} {quest.name}", json);
             }
 
-            var asyncOperationQuestTask = Addressables.LoadAssetsAsync<QuestTask>("Quest", null);
             
             while (!asyncOperationQuestTask.IsDone)
             {
@@ -85,6 +86,11 @@ namespace SaveSystem
             isLoading = true;
             var currentScene = SceneManager.GetActiveScene();
             var asyncOperation = SceneManager.LoadSceneAsync("LoadingScene");
+            
+            var asyncOperationInventory = Addressables.LoadAssetsAsync<InventoryStorage>("InventoryStorage", null);
+            var asyncOperationQuest = Addressables.LoadAssetsAsync<Quest>("Quest", null);
+            var asyncOperationQuestTask = Addressables.LoadAssetsAsync<QuestTask>("Quest", null);
+           
             while (!asyncOperation.isDone)
             {
                 yield return null;
@@ -102,9 +108,7 @@ namespace SaveSystem
             var finishedQuests = JsonUtility.FromJson<QuestsListWrapper>(PlayerPrefs.GetString($"{key} finishedQuests"));
             var thoughts = JsonUtility.FromJson<ThoughtsListWrapper>(PlayerPrefs.GetString($"{key} thoughts"));
             QuestManager.Instance.LoadQuests(activeQuests.quests, finishedQuests.quests, thoughts.thoughts);
-
             
-            var asyncOperationInventory = Addressables.LoadAssetsAsync<InventoryStorage>("InventoryStorage", null);
             while (!asyncOperationInventory.IsDone)
             {
                 yield return null;
@@ -116,7 +120,6 @@ namespace SaveSystem
                 storage.LoadInventory(slots.slots);
             }
             
-            var asyncOperationQuest = Addressables.LoadAssetsAsync<Quest>("Quest", null);
             
             while (!asyncOperationQuest.IsDone)
             {
@@ -128,10 +131,7 @@ namespace SaveSystem
                     PlayerPrefs.GetString($"{key} {quest.name}"));
                 quest.questStatus = status;
             }
-            
 
-            var asyncOperationQuestTask = Addressables.LoadAssetsAsync<QuestTask>("Quest", null);
-            
             while (!asyncOperationQuestTask.IsDone)
             {
                 yield return null;
@@ -152,36 +152,42 @@ namespace SaveSystem
             Debug.Log($"{key} Loaded");
         }
 
-        public static void Delete(string key)
+        public static IEnumerator Delete(string key)
         {
             PlayerPrefs.DeleteKey(key);
             PlayerPrefs.DeleteKey($"{key} activeQuests");
             PlayerPrefs.DeleteKey($"{key} finishedQuests");
             PlayerPrefs.DeleteKey($"{key} thoughts");
-
-            var assetNames = AssetDatabase.FindAssets("t:InventoryStorage");
-            foreach (var storageName in assetNames)
+            
+            var asyncOperationInventory = Addressables.LoadAssetsAsync<InventoryStorage>("InventoryStorage", null);
+            var asyncOperationQuest = Addressables.LoadAssetsAsync<Quest>("Quest", null);
+            var asyncOperationQuestTask = Addressables.LoadAssetsAsync<QuestTask>("Quest", null);
+            
+            while (!asyncOperationInventory.IsDone)
             {
-                var storagePath = AssetDatabase.GUIDToAssetPath(storageName);
-                var inventoryStorage = AssetDatabase.LoadAssetAtPath<InventoryStorage>(storagePath);
-                PlayerPrefs.DeleteKey($"{key} {inventoryStorage.name}");
+                yield return null;
+            }
+            foreach (var storage in asyncOperationInventory.Result)
+            {
+                PlayerPrefs.DeleteKey($"{key} {storage.name}");
+            }
+            
+            while (!asyncOperationQuest.IsDone)
+            {
+                yield return null;
+            }
+            foreach (var quest in asyncOperationQuest.Result)
+            {
+                PlayerPrefs.DeleteKey($"{key} {quest.name}");
             }
 
-            assetNames = AssetDatabase.FindAssets("t:Quest");
-            foreach (var assetName in assetNames)
+            while (!asyncOperationQuestTask.IsDone)
             {
-                var assetPath = AssetDatabase.GUIDToAssetPath(assetName);
-                var asset = AssetDatabase.LoadAssetAtPath<Quest>(assetPath);
-                PlayerPrefs.DeleteKey($"{key} {asset.name}");
+                yield return null;
             }
-
-
-            assetNames = AssetDatabase.FindAssets("t:QuestTask");
-            foreach (var assetName in assetNames)
+            foreach (var questTask in asyncOperationQuestTask.Result)
             {
-                var assetPath = AssetDatabase.GUIDToAssetPath(assetName);
-                var asset = AssetDatabase.LoadAssetAtPath<QuestTask>(assetPath);
-                PlayerPrefs.DeleteKey($"{key} {asset.name}");
+                PlayerPrefs.DeleteKey($"{key} {questTask.name}");
             }
 
             PlayerPrefs.DeleteKey($"{key} destroyed");
