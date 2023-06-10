@@ -233,6 +233,7 @@ namespace UI.QuestBook
             {
                 Destroy(textElements[i].gameObject);
             }
+            textElements.RemoveRange(stringList.Count, textElements.Count - stringList.Count);
         }
         
         
@@ -256,6 +257,7 @@ namespace UI.QuestBook
             {
                 Destroy(textElements[i].gameObject);
             }
+            textElements.RemoveRange(questList.Count, textElements.Count - questList.Count);
         }
         
         private List<RectPageIndex> CalcRects(List<RectTransform> rects)
