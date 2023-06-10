@@ -8,7 +8,7 @@ public class SaveLoadButton : MonoBehaviour
     {
         if (MainMenuController.Instance.sceneLoaded == false)
             return;
-        SaveLoad.Save(QuickSave.Key);
+        StartCoroutine(SaveLoad.Save(QuickSave.Key));
     }
 
     public void Load()

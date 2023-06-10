@@ -27,7 +27,7 @@ namespace SaveSystem
                 return;
             if (callbackContext.performed)
             {
-                SaveLoad.Save(Key);
+                StartCoroutine(SaveLoad.Save(Key));
             }
         }
 

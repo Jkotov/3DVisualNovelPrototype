@@ -9,7 +9,7 @@ public class StartButton : MonoBehaviour
 
     private void Start()
     {
-        SaveLoad.Save(SaveKey);
+        StartCoroutine(SaveLoad.Save(SaveKey));
     }
 
     public void Load()

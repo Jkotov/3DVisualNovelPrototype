@@ -4,6 +4,8 @@ using SaveSystem;
 using UnityEditor;
 using UnityEngine;
 
+#if UNITY_EDITOR
+
 [InitializeOnLoad]
 public static class OnPlayModeExitClean
 {
@@ -57,3 +59,5 @@ public static class OnPlayModeExitClean
         var destroyed = JsonUtility.FromJson<SaveLoad.StringsListWrapper>(PlayerPrefs.GetString($"{key} destroyed"));
     }
 }
+
+#endif
