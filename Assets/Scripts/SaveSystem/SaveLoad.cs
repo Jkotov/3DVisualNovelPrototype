@@ -5,7 +5,6 @@ using System.Linq;
 using InventorySystem;
 using Moveables;
 using QuestSystem;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
@@ -14,10 +13,13 @@ namespace SaveSystem
 {
     public static class SaveLoad
     {
-        private static bool isLoading = false;
+        private static bool isLoading { get; set; } = false;
         
         public static IEnumerator Save(string key)
         {
+            if (isLoading)
+                yield break;
+            isLoading = true;
             PlayerPrefs.SetString(key, "");
             PlayerPrefs.SetString($"{key} activeQuests",
                 JsonUtility.ToJson(new QuestsListWrapper(QuestManager.Instance.ActiveQuests.ToList())));
@@ -72,6 +74,7 @@ namespace SaveSystem
 
             PlayerPrefs.SetString($"{key} scene", SceneManager.GetActiveScene().name);
             PlayerPrefs.Save();
+            isLoading = false;
             Debug.Log($"{key} Saved");
         }
 
@@ -103,11 +106,6 @@ namespace SaveSystem
                     yield return null;
                 }
             }
-
-            var activeQuests = JsonUtility.FromJson<QuestsListWrapper>(PlayerPrefs.GetString($"{key} activeQuests"));
-            var finishedQuests = JsonUtility.FromJson<QuestsListWrapper>(PlayerPrefs.GetString($"{key} finishedQuests"));
-            var thoughts = JsonUtility.FromJson<ThoughtsListWrapper>(PlayerPrefs.GetString($"{key} thoughts"));
-            QuestManager.Instance.LoadQuests(activeQuests.quests, finishedQuests.quests, thoughts.thoughts);
             
             while (!asyncOperationInventory.IsDone)
             {
@@ -147,8 +145,14 @@ namespace SaveSystem
             DestroyableObjectsManager.Instance.Load(destroyed.strings.ToHashSet()); 
             MoveableManager.Instance.Load(JsonUtility.FromJson<MoveablesManagerAdapter>(PlayerPrefs.GetString($"{key} moveable")).Dict);
             SceneManager.LoadSceneAsync(PlayerPrefs.GetString($"{key} scene"));
+
+            var activeQuests = JsonUtility.FromJson<QuestsListWrapper>(PlayerPrefs.GetString($"{key} activeQuests"));
+            var finishedQuests = JsonUtility.FromJson<QuestsListWrapper>(PlayerPrefs.GetString($"{key} finishedQuests"));
+            var thoughts = JsonUtility.FromJson<ThoughtsListWrapper>(PlayerPrefs.GetString($"{key} thoughts"));
+            QuestManager.Instance.LoadQuests(activeQuests.quests, finishedQuests.quests, thoughts.thoughts);
             MainMenuController.Instance.sceneLoaded = true;
             isLoading = false;
+            MainMenuController.Instance.Hide();
             Debug.Log($"{key} Loaded");
         }
 

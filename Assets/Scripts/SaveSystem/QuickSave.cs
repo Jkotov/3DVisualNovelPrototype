@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,17 +7,17 @@ namespace SaveSystem
     public class QuickSave : MonoBehaviour
     {
         public const string Key = "QuickSave";
-        private static QuickSave instance;
+        public static QuickSave Instance { get; private set; }
         
         private void Awake()
         {
-            if (instance != null && instance != this)
+            if (Instance != null && Instance != this)
             {
                 Destroy(gameObject);
             }
             else
             {
-                instance = this;
+                Instance = this;
                 DontDestroyOnLoad(transform);
             }
         }
@@ -45,6 +46,21 @@ namespace SaveSystem
             {
                 StartCoroutine(SaveLoad.Delete(Key));
             }
+        }
+        
+        public void Save(string Key)
+        {
+            StartCoroutine(SaveLoad.Save(Key));
+        }
+
+        public void Load(string Key)
+        {
+            StartCoroutine(SaveLoad.TryLoad(Key));
+        }
+
+        public void Delete(string Key)
+        {
+            StartCoroutine(SaveLoad.Delete(Key));
         }
     }
 }
