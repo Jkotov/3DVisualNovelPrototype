@@ -1,6 +1,7 @@
 using InventorySystem;
 using UnityEditor;
 using UnityEngine;
+using Utils;
 
 [CustomEditor(typeof(Id), true)]
 public class IdCustomEditor : Editor

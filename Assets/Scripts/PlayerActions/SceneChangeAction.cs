@@ -11,7 +11,7 @@ namespace PlayerActions
     [RequireComponent(typeof(Moveable))]
     public class SceneChangeAction : MonoBehaviour
     {
-        private readonly List<SceneLoader> scenesForLoad = new List<SceneLoader>();
+        private readonly List<SceneLoadData> scenesForLoad = new List<SceneLoadData>();
         private Moveable moveable;
         
         private void Awake()
@@ -36,14 +36,14 @@ namespace PlayerActions
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out SceneLoader sceneLoader))
+            if (other.TryGetComponent(out SceneLoadData sceneLoader))
             {
                 scenesForLoad.Add(sceneLoader);
             }
         }
         private void OnTriggerExit(Collider other)
         {
-            if (other.TryGetComponent(out SceneLoader sceneLoader))
+            if (other.TryGetComponent(out SceneLoadData sceneLoader))
             {
                 scenesForLoad.RemoveAll(scene => scene == sceneLoader);
             }

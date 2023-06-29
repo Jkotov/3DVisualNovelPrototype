@@ -2,6 +2,10 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+
+/// <summary>
+/// Fix for URP sky
+/// </summary>
 public class UpdateSky : MonoBehaviour
 {
     private ReflectionProbe baker;
